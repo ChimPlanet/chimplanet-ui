@@ -1,1 +1,2 @@
-export { default as Test } from "./components/Test";
+export * from "./components";
+export * from "./icons";

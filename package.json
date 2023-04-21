@@ -9,7 +9,8 @@
     "prepare": "yarn run build"
   },
   "dependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-feather": "^2.0.10"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
