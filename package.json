@@ -1,0 +1,20 @@
+{
+  "name": "chimplanet-ui",
+  "version": "1.0.2",
+  "main": "build/index.js",
+  "repository": "https://github.com/ChimPlanet/chimplanet-ui.git",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d build",
+    "prepare": "yarn run build"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.18.6"
+  }
+}
