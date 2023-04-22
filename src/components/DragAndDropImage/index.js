@@ -1,2 +1,2 @@
-import DragAndDropImage from './DragAndDropImage';
-export default DragAndDropImage;
+import DragAndDropImage from "./DragAndDropImage";
+export { DragAndDropImage };
