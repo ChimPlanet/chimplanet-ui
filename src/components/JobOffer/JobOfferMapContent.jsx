@@ -1,25 +1,30 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import { BookmarkContext } from '@/utils/Context/bookmarkContext';
-import useBookmark from '@/hooks/useBookmark';
-import { useArticleContext } from '@/context/articleContext';
-
-import JobOffer from './JobOffer';
+import JobOffer from "./JobOffer";
 
 /**
- * @param {{jobs: import("@/utils/job").JobOfferVO[], offerWidth?: number, toggleBookmark(id: number):void}}
+ * @typedef {object} JobOfferMapContentProps
+ * @property {(id: string | number) => boolean} isBookmarked
+ * @property {any[]} jobs
+ * @property {(offer: any) => void} onClick
+ * @property {(id: string|number) => void} onBookmarkClick
+ * @property {number} offerWidth
+ *
+ * @param {{jobs: import("@/utils/job").JobOfferVO[], offerWidth?: number}}
  */
 
-export default function JobOfferMapContent({ jobs, offerWidth = 250 }) {
-  const [, { open }] = useArticleContext();
-  const { toggle } = useBookmark();
-  const bookmarkSet = BookmarkContext.getInstance().getBookmarkSet();
-
+export default function JobOfferMapContent({
+  jobs,
+  offerWidth = 250,
+  onClick,
+  onBookmarkClick,
+  isBookmarked,
+}) {
   return (
     <>
       {jobs.map((offer) => (
         <JobOffer
-          onClick={open.bind(null, offer)}
+          onClick={() => onClick(offer)}
           key={offer.id}
           id={offer.id}
           thumbnailURL={offer.thumbnailURL}
@@ -29,10 +34,10 @@ export default function JobOfferMapContent({ jobs, offerWidth = 250 }) {
           writeAt={offer.regDate}
           redirectURL={offer.redirectURL}
           viewCount={offer.viewCount}
-          isBookmarked={bookmarkSet.has(offer.id)}
+          isBookmarked={isBookmarked(offer.id)}
           isClosed={offer.isClosed}
           isRegular={offer.isRegular}
-          onBookmarkClick={() => toggle(offer.id)}
+          onBookmarkClick={() => onBookmarkClick(offer.id)}
           style={{
             width: offerWidth,
           }}

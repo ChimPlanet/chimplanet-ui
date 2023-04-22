@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { toFormatNumber } from '@/utils/number';
+import styled from "styled-components";
+import PropTypes from "prop-types";
+import { toFormatNumber } from "../utils/number.util";
 
 /**
  * @typedef {object} JobTypographyProps

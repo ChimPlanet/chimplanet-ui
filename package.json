@@ -4,9 +4,11 @@
   "main": "build/index.js",
   "repository": "https://github.com/ChimPlanet/chimplanet-ui.git",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "build": "babel src -d build",
-    "prepare": "yarn run build"
+    "build": "babel src -d build --copy-files",
+    "prepare": "yarn run build",
+    "start": "yarn build && node --experimental-specifier-resolution=node build/index.js"
   },
   "dependencies": {
     "prop-types": "^15.8.1",

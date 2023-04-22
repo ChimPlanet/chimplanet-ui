@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import JobTypography from './components/jobTypography';
-import JobStatusIndicator from './components/jobStatusIndicator';
-import JobOfferThumbnail from './components/jobOfferThumbnail';
+import JobTypography from "./components/JobTypography";
+import JobStatusIndicator from "./components/JobStatusIndicator";
+import JobOfferThumbnail from "./components/JobOfferThumbnail";
 
 /**
  * @typedef {object} JobOfferProps
@@ -30,7 +30,7 @@ export default function JobOffer({
   writeAt,
   isClosed,
   isRegular,
-  writer = '침플래닛',
+  writer = "침플래닛",
   isBookmarked = false,
   onBookmarkClick,
   ...props

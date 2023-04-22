@@ -1,5 +1,4 @@
-import JobOffer from './JobOffer';
-import JobOfferSection from './JobOfferSection';
-import JobOfferMapContent from './JobOfferMapContent';
+import JobOffer from "./JobOffer";
+import JobOfferMapContent from "./JobOfferMapContent";
 
-export { JobOffer, JobOfferSection, JobOfferMapContent };
+export { JobOffer, JobOfferMapContent };

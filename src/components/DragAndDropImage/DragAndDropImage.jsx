@@ -1,5 +1,5 @@
-import { FileDragDropPane } from '@/common/components/FileDragDropPane';
-import { Image, OverlayContainer, OverlayPane } from './DragAndDropImage.style';
+import { FileDragDropPane } from "../FileDragDropPane";
+import { Image, OverlayContainer, OverlayPane } from "./DragAndDropImage.style";
 
 /**
  * @typedef {object} DragAndDropImageProps

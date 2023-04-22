@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import { JobBookmarkIcon } from '@/common/icons';
-import DefaultThumbnail from '@/assets/default_thumbnail.png';
+import { Bookmark } from "react-feather";
+import DefaultThumbnail from "../../../assets/images/default_thumbnail.png";
 
 /**
  * @typedef {object} JobOfferThumbnailProps
@@ -34,7 +34,7 @@ export default function JobOfferThumbnail({
         alt={alt}
       />
       <BookmarkButton onClick={handleClick}>
-        <JobBookmarkIcon filled={isBookmarked} />
+        <Bookmark />
       </BookmarkButton>
     </Container>
   );
