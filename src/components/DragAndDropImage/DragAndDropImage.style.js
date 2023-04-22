@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from "@/libs";
 
 export const OverlayContainer = styled.div`
   position: relative;

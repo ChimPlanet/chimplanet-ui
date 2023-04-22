@@ -12,5 +12,15 @@
         "runtime": "automatic"
       }
     ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@": "./src"
+        }
+      }
+    ]
   ]
 }

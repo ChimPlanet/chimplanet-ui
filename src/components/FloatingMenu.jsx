@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { cloneElement } from "react";
-import styled from "styled-components";
+import { styled } from "@/libs";
 
 /**
  * @typedef {object} FloatingAnchorContainerProps

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "@/libs";
 import PropTypes from "prop-types";
 
 import JobTypography from "./components/JobTypography";

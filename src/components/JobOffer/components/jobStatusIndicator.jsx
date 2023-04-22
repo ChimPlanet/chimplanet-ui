@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import { styled } from "@/libs";
+import PropTypes from "prop-types";
 
 /**
  * @typedef {object} JobStatusIndicatorProps
@@ -13,8 +13,8 @@ export default function JobStatusIndicator({ isClosed, isRegular }) {
   return (
     <Container>
       <Indicator
-        color={isClosed ? '#ED2040' : '#00BD2F'}
-        children={isClosed ? '마감' : '구인 중'}
+        color={isClosed ? "#ED2040" : "#00BD2F"}
+        children={isClosed ? "마감" : "구인 중"}
       />
       {isRegular && <Indicator color="#969696">상시모집</Indicator>}
     </Container>
