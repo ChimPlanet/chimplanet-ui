@@ -7,4 +7,4 @@ export * from "./Fallback";
 export * from "./FloatingMenu";
 export * from "./Loading";
 export * from "./ResizableGrid";
-export * from "./Carousel";
+export * from "./Banner";
