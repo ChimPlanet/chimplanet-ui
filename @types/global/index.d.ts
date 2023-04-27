@@ -1,1 +1,2 @@
 import "./ext";
+import "./screenType";

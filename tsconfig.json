@@ -10,8 +10,7 @@
     "esModuleInterop": true,
     "allowJs": true,
     "lib": [
-      "es5",
-      "es6",
+      "ESNext",
       "dom"
     ],
     "typeRoots": [
