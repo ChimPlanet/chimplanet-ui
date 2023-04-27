@@ -1,18 +1,18 @@
 import { PropsWithChildren, useState } from "react";
-import { ThemeProvider as __ThemeProvider, PropTypes } from "@/libs";
+import { ThemeProvider, PropTypes } from "@/libs";
 
 import { lightTheme, darkTheme } from "@/theme";
 
 /**
  * @param {{children: JSX.Element}}
  */
-export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [theme] = useTheme();
+export const CPThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
+  const [theme] = useCPTheme();
 
   return (
-    <__ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       {children}
-    </__ThemeProvider>
+    </ThemeProvider>
   );
 };
 
@@ -20,7 +20,7 @@ ThemeProvider.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export function useTheme() {
+export function useCPTheme() {
   // browser theme information
   const isBrowserDarkMode =
     window.matchMedia &&
