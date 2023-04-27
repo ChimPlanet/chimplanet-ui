@@ -6,3 +6,4 @@ export * from "./ErrorBoundary";
 export * from "./Fallback";
 export * from "./FloatingMenu";
 export * from "./Loading";
+export * from "./ResizableGrid";
