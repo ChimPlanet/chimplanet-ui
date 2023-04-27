@@ -1,25 +1,20 @@
-import PropTypes from "prop-types";
-
 import JobOffer from "./JobOffer";
 
-/**
- * @typedef {object} JobOfferMapContentProps
- * @property {(id: string | number) => boolean} isBookmarked
- * @property {any[]} jobs
- * @property {(offer: any) => void} onClick
- * @property {(id: string|number) => void} onBookmarkClick
- * @property {number} offerWidth
- *
- * @param {{jobs: import("@/utils/job").JobOfferVO[], offerWidth?: number}}
- */
+interface JobOfferMapContentProps {
+  isBookmarked(id: string | number): boolean;
+  jobs: any[];
+  onClick(offer: any): void;
+  onBookmarkClick(id: string | number): void;
+  offerWidth: number;
+}
 
-export default function JobOfferMapContent({
+export const JobOfferMapContent: React.FC<JobOfferMapContentProps> = ({
   jobs,
   offerWidth = 250,
   onClick,
   onBookmarkClick,
   isBookmarked,
-}) {
+}) => {
   return (
     <>
       {jobs.map((offer) => (
@@ -45,8 +40,6 @@ export default function JobOfferMapContent({
       ))}
     </>
   );
-}
-
-JobOfferMapContent.propTypes = {
-  jobs: PropTypes.array,
 };
+
+export default JobOfferMapContent;

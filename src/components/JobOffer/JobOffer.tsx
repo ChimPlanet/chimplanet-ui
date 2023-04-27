@@ -1,27 +1,32 @@
-import { styled } from "@/libs";
-import PropTypes from "prop-types";
+import { styled, number, string, bool, func } from "@/libs";
 
 import JobTypography from "./components/JobTypography";
 import JobStatusIndicator from "./components/JobStatusIndicator";
 import JobOfferThumbnail from "./components/JobOfferThumbnail";
 
-/**
- * @typedef {object} JobOfferProps
- * @property {number} id
- * @property {string} thumbnailURL
- * @property {boolean} isThumbnail
- * @property {string} title
- * @property {number} viewCount
- * @property {string} writeAt
- * @property {string} writer
- * @property {boolean} isClosed
- * @property {boolean} isRegular
- * @property {boolean} isBookmarked
- * @property {()=>void} onBookmarkClick
- *
- * @param {JobOfferProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>}
- */
-export default function JobOffer({
+export interface JobOfferProps
+  extends Omit<
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLDivElement>,
+      HTMLDivElement
+    >,
+    "id"
+  > {
+  id: number;
+  thumbnailURL?: string;
+  isThumbnail: boolean;
+  title: string;
+  viewCount: number;
+  writeAt: string;
+  writer: string;
+  isClosed: boolean;
+  isRegular: boolean;
+  redirectURL: string;
+  isBookmarked: boolean;
+  onBookmarkClick(): void;
+}
+
+export const JobOffer: React.FC<JobOfferProps> = ({
   id,
   title,
   thumbnailURL,
@@ -34,11 +39,11 @@ export default function JobOffer({
   isBookmarked = false,
   onBookmarkClick,
   ...props
-}) {
+}) => {
   return (
-    <Container {...props}>
+    <Container {...(props as any)}>
       <JobOfferThumbnail
-        src={thumbnailURL}
+        src={thumbnailURL ?? ""}
         alt={title}
         isThumbnail={isThumbnail}
         isBookmarked={isBookmarked}
@@ -55,21 +60,23 @@ export default function JobOffer({
       </Information>
     </Container>
   );
-}
+};
 
 JobOffer.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  thumbnailURL: PropTypes.string,
-  viewCount: PropTypes.number.isRequired,
-  writeAt: PropTypes.string.isRequired,
-  isClosed: PropTypes.bool.isRequired,
-  isThumbnail: PropTypes.bool.isRequired,
-  writer: PropTypes.string,
-  isBookmarked: PropTypes.bool,
-  isRegular: PropTypes.bool,
-  onBookmarkClick: PropTypes.func.isRequired,
+  id: number.isRequired,
+  title: string.isRequired,
+  thumbnailURL: string,
+  viewCount: number.isRequired,
+  writeAt: string.isRequired,
+  isClosed: bool.isRequired,
+  isThumbnail: bool.isRequired,
+  writer: string.isRequired,
+  isBookmarked: bool.isRequired,
+  isRegular: bool.isRequired,
+  onBookmarkClick: func.isRequired,
 };
+
+export default JobOffer;
 
 const Container = styled.div`
   transform: translateY(0px);

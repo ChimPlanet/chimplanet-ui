@@ -1,22 +1,18 @@
 import { FileDragDropPane } from "../FileDragDropPane";
 import { Image, OverlayContainer, OverlayPane } from "./DragAndDropImage.style";
 
-/**
- * @typedef {object} DragAndDropImageProps
- * @property {string} id
- * @property {(file: File) => void} onDropImage
- * @property {(file: File) => boolean} validateDroppedFile
- * @property {string?} imageSourceURL
- * @property {JSX.Element} elementWhenEmpty
- * @property {{width: number, height: number}} imageRect
- * @property {JSX.Element} elementWhenUsually
- * @property {JSX.Element} elementWhenDragging
- *
- * @param {DragAndDropImageProps}
- * @returns
- */
+export interface DragAndDropImage {
+  id: string;
+  onDropImage(file: File): void;
+  validateDroppedFile(file: File): boolean;
+  imageSourceURL?: string;
+  imageRect: { width: number; height: number };
+  elementWhenEmpty: JSX.Element;
+  elementWhenUsually: JSX.Element;
+  elementWhenDragging: JSX.Element;
+}
 
-export default function DragAndDropImage({
+export const DragAndDropImage: React.FC<DragAndDropImage> = ({
   id,
   imageSourceURL,
   elementWhenEmpty,
@@ -25,8 +21,7 @@ export default function DragAndDropImage({
   validateDroppedFile,
   elementWhenDragging,
   elementWhenUsually,
-}) {
-  // (imageSource가 없는 경우에만 elementWhenEmpty를 랜더링 합니다)
+}) => {
   const contentElement = imageSourceURL ? (
     <Image
       src={imageSourceURL}
@@ -37,8 +32,7 @@ export default function DragAndDropImage({
     elementWhenEmpty
   );
 
-  /** @param {File} file */
-  function handleFileDrop(file) {
+  function handleFileDrop(file: File) {
     // 파일 크기 등 조건 확인
     if (validateDroppedFile(file)) {
       onDropImage(file);
@@ -50,12 +44,14 @@ export default function DragAndDropImage({
       <OverlayPane zIndex={1}>
         <FileDragDropPane
           id={id}
-          draggingElement={elementWhenDragging}
-          defaultElement={elementWhenUsually}
+          elementWhenDragging={elementWhenDragging}
+          elementWhenUsually={elementWhenUsually}
           onDropFile={handleFileDrop}
         />
       </OverlayPane>
       <OverlayPane zIndex={0}>{contentElement}</OverlayPane>
     </OverlayContainer>
   );
-}
+};
+
+export default DragAndDropImage;

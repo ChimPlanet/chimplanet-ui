@@ -12,7 +12,7 @@ export const OverlayPane = styled.div`
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: ${({ zIndex }) => zIndex};
+  z-index: ${({ zIndex }: { zIndex: number }) => zIndex};
 `;
 
 export const Image = styled.img``;

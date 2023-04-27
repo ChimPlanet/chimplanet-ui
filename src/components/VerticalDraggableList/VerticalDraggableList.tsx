@@ -1,23 +1,25 @@
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import {
+  DragDropContext,
+  Draggable,
+  Droppable,
+  OnDragEndResponder,
+} from "react-beautiful-dnd";
 
-/**
- * @typedef {object} VerticalDraggableListProps
- * @property {string} droppableId
- * @property {unknown[]} items
- * @property {import('react-beautiful-dnd').OnDragEndResponder} onDragEnd
- * @property {(item: unknown)=>string} getIdByItem
- * @property {(item: unknown, index: number)=>JSX.Element} children
- *
- * @param {VerticalDraggableListProps}
- * @returns
- */
-export default function VerticalDraggableList({
+interface VerticalDraggableListProps {
+  droppableId: string;
+  items: unknown[];
+  onDragEnd: OnDragEndResponder;
+  getIdByItem(item: unknown): string;
+  children(item: unknown, index: number): JSX.Element;
+}
+
+export const VerticalDraggableList: React.FC<VerticalDraggableListProps> = ({
   droppableId,
   items,
   onDragEnd,
   getIdByItem,
   children,
-}) {
+}) => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId={droppableId}>
@@ -45,4 +47,6 @@ export default function VerticalDraggableList({
       </Droppable>
     </DragDropContext>
   );
-}
+};
+
+export default VerticalDraggableList;

@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "module": "commonjs",
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "lib": [
+      "es5",
+      "es6",
+      "dom"
+    ],
+    "typeRoots": [
+      "@types",
+      "./node_modules/@types",
+    ],
+    "declaration": true,
+    "outDir": "build",
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ]
+}
