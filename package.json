@@ -28,7 +28,6 @@
     "@types/react-beautiful-dnd": "^13.1.4",
     "@types/styled-components": "^5.1.26",
     "babel-plugin-module-resolver": "^5.0.0",
-    "esbuild": "^0.17.18",
     "typescript": "^5.0.4"
   }
 }
