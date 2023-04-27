@@ -13,8 +13,14 @@
     "start": "yarn build && node --experimental-specifier-resolution=node build/index.js"
   },
   "exports": {
-    ".": "./build/index.js",
-    "./icons": "./build/icons/index.js"
+    ".": {
+      "import": "./build/index.js",
+      "types": "./build/index.d.ts"
+    },
+    "./icons": {
+      "import": "./build/icons/index.js",
+      "types": "./build/icons/index.d.ts"
+    }
   },
   "dependencies": {
     "prop-types": "^15.8.1",
