@@ -24,6 +24,7 @@ export const Button = styled.span`
   border-radius: 100px;
   & svg {
     margin: auto;
+    height: 100%;
   }
 `;
 
