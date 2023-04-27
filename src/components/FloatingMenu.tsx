@@ -1,11 +1,15 @@
 import { cloneElement } from "react";
 import { PropTypes, styled } from "@/libs";
 
-interface FloatingAnchorContainerProps {
+interface FloatingAnchorContainerProps
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  > {
   anchorRef: React.MutableRefObject<HTMLDivElement>;
   position: "absolute" | "fixed";
   close(): void;
-  zIndex: string;
+  zIndex?: number;
   children: JSX.Element;
 }
 
