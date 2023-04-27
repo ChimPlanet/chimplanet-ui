@@ -7,10 +7,9 @@ import {
 } from "react";
 
 import { styled } from "@/libs";
-import { useScreenType } from "@/contexts";
-import { ScreenType } from "chimplanet-ui";
+import { ScreenType, useScreenType } from "@/contexts";
 
-interface ResizableGridProps
+export interface ResizableGridProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   calcNumberOfColumns(screenType: ScreenType): number;
   children: JSX.Element;

@@ -1,7 +1,8 @@
 import { createContext, useContext, useMemo } from "react";
-import { ScreenType } from "chimplanet-ui";
 
 import useScreenWidth from "@/hooks/useScreenWidth";
+
+export type ScreenType = "desktop" | "tablet" | "mobile";
 
 const screenTypeContext = createContext<ScreenType>("desktop");
 

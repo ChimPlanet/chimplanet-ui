@@ -14,8 +14,8 @@
       "dom"
     ],
     "typeRoots": [
-      "@types",
       "./node_modules/@types",
+      "./typings",
     ],
     "declaration": true,
     "outDir": "build",
@@ -27,6 +27,7 @@
     }
   },
   "include": [
-    "src"
+    "src",
+    "typings",
   ]
 }
