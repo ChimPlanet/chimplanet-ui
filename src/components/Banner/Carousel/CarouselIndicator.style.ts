@@ -22,6 +22,9 @@ export const Button = styled.span`
   background-color: #191919;
   line-height: 35px;
   border-radius: 100px;
+  & svg {
+    margin: auto;
+  }
 `;
 
 export const Indicator = styled.div`
