@@ -51,5 +51,8 @@
     "@types/styled-components": "^5.1.26",
     "babel-plugin-module-resolver": "^5.0.0",
     "typescript": "^5.0.4"
-  }
+  },
+  "files": [
+    "build"
+  ]
 }
