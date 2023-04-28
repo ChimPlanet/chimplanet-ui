@@ -5,6 +5,7 @@ import Bookmark from "./bookmark";
 import Logo from "./logo";
 import MenuBar from "./menuBar";
 import OrnamentalSearchBar from "./ornamentalSearchBar";
+import { useHeader } from "@/components/Header/context/headerContext";
 
 interface HeaderTabProps {
   activeSearchTab(): void;
@@ -15,6 +16,12 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
   activeSearchTab,
   mobile,
 }) => {
+  const { activeMobileMenu } = useHeader();
+
+  const handleMobileMenu = () => {
+    if (activeMobileMenu) activeMobileMenu();
+  };
+
   return (
     <Container>
       <UpperContainer>
@@ -27,7 +34,7 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
         ) : (
           <div>
             <IconButton onClick={activeSearchTab} children={<Search />} />
-            <IconButton children={<Menu />} />
+            <IconButton onClick={handleMobileMenu} children={<Menu />} />
           </div>
         )}
       </UpperContainer>
