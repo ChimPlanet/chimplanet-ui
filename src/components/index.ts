@@ -9,3 +9,4 @@ export * from "./Loading";
 export * from "./ResizableGrid";
 export * from "./Banner";
 export * from "./Header";
+export * from "./BookmarkButton";

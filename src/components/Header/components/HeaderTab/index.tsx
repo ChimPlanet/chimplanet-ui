@@ -1,7 +1,7 @@
 import { styled, PropTypes } from "@/libs";
 import { Menu, Search } from "@/icons";
 
-import Bookmark from "./bookmark";
+import { BookmarkButton } from "@/components";
 import Logo from "./logo";
 import MenuBar from "./menuBar";
 import OrnamentalSearchBar from "./ornamentalSearchBar";
@@ -30,7 +30,7 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
           <OrnamentalSearchBar onClick={activeSearchTab} />
         </Group>
         {!mobile ? (
-          <Bookmark />
+          <BookmarkButton />
         ) : (
           <div>
             <IconButton onClick={activeSearchTab} children={<Search />} />
