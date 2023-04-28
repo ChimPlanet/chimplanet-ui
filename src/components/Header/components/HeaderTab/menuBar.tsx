@@ -27,28 +27,27 @@ export default function MenuBar() {
 
   return (
     <>
-      <Container>
+      <Container ref={categoryAnchor}>
         {/* Size에 따라서 메뉴바 변경 */}
         {sizeType !== "mobile" ? (
           <CategoryItem
-            ref={categoryAnchor}
             onMouseOver={() => setIsCategoryVisible(true)}
             onMouseOut={fire}
           >
-            <Menu />
-            &nbsp;&nbsp; 카테고리
+            <Menu style={{ marginTop: -5 }} />
+            <span>&nbsp;&nbsp; 카테고리</span>
           </CategoryItem>
         ) : (
-          <MenuItem active={pathname === HOME_PATH}>
-            <MenuLink to={HOME_PATH}>홈</MenuLink>
+          <MenuItem to={HOME_PATH} active={pathname === HOME_PATH}>
+            홈
           </MenuItem>
         )}
 
-        <MenuItem active={pathname === EVENT_PATH}>
-          <MenuLink to={EVENT_PATH}>이벤트</MenuLink>
+        <MenuItem to={EVENT_PATH} active={pathname === EVENT_PATH}>
+          이벤트
         </MenuItem>
-        <MenuItem active={pathname == OFFICIAL_PATH}>
-          <MenuLink to={OFFICIAL_PATH}>공식</MenuLink>
+        <MenuItem to={OFFICIAL_PATH} active={pathname == OFFICIAL_PATH}>
+          공식
         </MenuItem>
       </Container>
       {isCategoryVisible && (
@@ -66,6 +65,7 @@ export default function MenuBar() {
 }
 
 const Container = styled.div`
+  display: flex;
   position: relative;
   color: #444444;
   font-size: 14px;
@@ -73,9 +73,9 @@ const Container = styled.div`
   margin-top: 30px;
 `;
 
-const MenuItem = styled.div<any>`
+const MenuItem = styled<any>(Link)`
   cursor: pointer;
-  display: inline-block;
+  display: flex;
   text-align: center;
   height: 35px;
   user-select: none;
@@ -93,10 +93,4 @@ const MenuItem = styled.div<any>`
 
 const CategoryItem = styled(MenuItem)`
   padding-left: 0;
-`;
-
-const MenuLink = styled(Link)`
-  display: block;
-  width: 100%;
-  height: 100%;
 `;
