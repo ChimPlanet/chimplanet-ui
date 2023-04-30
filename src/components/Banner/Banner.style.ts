@@ -49,6 +49,6 @@ export const AnchorBannerItem = styled.div`
 
   & img {
     padding: 0px ${horizontalPadding}px;
-    border-radius: 25px;
+    border-radius: 30px / 25px;
   }
 `;
