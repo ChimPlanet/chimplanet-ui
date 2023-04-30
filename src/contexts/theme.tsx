@@ -6,11 +6,15 @@ import { lightTheme, darkTheme } from "@/theme";
 /**
  * @param {{children: JSX.Element}}
  */
-export const CPThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
+export const CPThemeProvider: React.FC<
+  PropsWithChildren<{ onlyLight?: boolean }>
+> = ({ children, onlyLight }) => {
   const [theme] = useCPTheme();
 
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider
+      theme={onlyLight || theme === "light" ? lightTheme : darkTheme}
+    >
       {children}
     </ThemeProvider>
   );
