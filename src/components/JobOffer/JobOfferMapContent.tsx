@@ -1,10 +1,10 @@
 import JobOffer from "./JobOffer";
 
 interface JobOfferMapContentProps {
-  isBookmarked(id: string | number): boolean;
+  isBookmarked(offer: any): boolean;
   jobs: any[];
   onClick(offer: any): void;
-  onBookmarkClick(id: string | number): void;
+  onBookmarkClick(offer: any): void;
   offerWidth: number;
 }
 
@@ -29,10 +29,10 @@ export const JobOfferMapContent: React.FC<JobOfferMapContentProps> = ({
           writeAt={offer.regDate}
           redirectURL={offer.redirectURL}
           viewCount={offer.viewCount}
-          isBookmarked={isBookmarked(offer.id)}
+          isBookmarked={isBookmarked(offer)}
           isClosed={offer.isClosed}
           isRegular={offer.isRegular}
-          onBookmarkClick={() => onBookmarkClick(offer.id)}
+          onBookmarkClick={() => onBookmarkClick(offer)}
           style={{
             width: offerWidth,
           }}
