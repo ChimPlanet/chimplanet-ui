@@ -8,13 +8,14 @@ export default createThemePlatte({
     quaternary: "#868E96", // header o search
     quinary: "#ffffff",
     senary: "#AAB1BC",
+    septenary: "#8E94A0",
   },
   borderColors: {
     primary: "#DBDEE2",
     secondary: "#DBDEE2 ",
     tertiary: "#DBDEE2",
     quaternary: "#DBDEE2",
-    quinary: "#DBDEE2",
+    quinary: "#DBDEE2", // 검색 태그
   },
   bgColors: {
     primary: "#ffffff",
@@ -22,7 +23,7 @@ export default createThemePlatte({
     tertiary: "#F5F6F7",
     quaternary: "#FFFFFF",
     quinary: "#F5F6F7",
-    senary: "",
+    senary: "#F5F6F7",
   },
   specialColors: {
     positive: "#00E4B3",

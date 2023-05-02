@@ -8,13 +8,14 @@ export default createThemePlatte({
     quaternary: "#868E96", // header o search
     quinary: "#000000",
     senary: "#A8A8A8",
+    septenary: "#ffffff",
   },
   borderColors: {
     primary: "#3A3B3D",
     secondary: "#DBDEE2",
     tertiary: "#A4ACB3",
     quaternary: "#444546",
-    quinary: "#A8A8A8",
+    quinary: "#A8A8A8", // 검색 태그
   },
   bgColors: {
     primary: "#1e1f21",

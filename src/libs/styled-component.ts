@@ -12,7 +12,8 @@ export type ThemeTextColorProperty =
   | "tertiary" // 설명
   | "quaternary"
   | "quinary"
-  | "senary";
+  | "senary"
+  | "septenary";
 
 export type ThemeBorderColorProperty =
   | "primary"
