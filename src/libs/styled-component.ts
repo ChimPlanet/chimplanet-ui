@@ -1,6 +1,7 @@
 import Styled, {
   ThemedStyledInterface,
   FlattenSimpleInterpolation,
+  useTheme,
 } from "styled-components";
 
 export type ThemeScreenType = "desktop" | "tablet" | "mobile";
@@ -10,9 +11,15 @@ export type ThemeTextColorProperty =
   | "secondary"
   | "tertiary" // 설명
   | "quaternary"
-  | "quinary";
+  | "quinary"
+  | "senary";
 
-export type ThemeBorderColorProperty = "primary" | "secondary" | "tertiary";
+export type ThemeBorderColorProperty =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "quaternary"
+  | "quinary";
 
 export type ThemeSpecialColorProperty = "positive" | "negative" | "normal";
 
@@ -39,5 +46,7 @@ export interface ChimplanetThemePlatte {
 
 const styled = Styled as ThemedStyledInterface<ChimplanetThemePlatte>;
 
+const useCurrentTheme = useTheme as () => ChimplanetThemePlatte;
+
 export * from "styled-components";
-export { styled };
+export { styled, useCurrentTheme };

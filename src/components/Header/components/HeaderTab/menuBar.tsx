@@ -80,7 +80,7 @@ const MenuItem = styled(Link)<{ active: boolean }>`
   user-select: none;
   padding: 0px 23px;
 
-  color: ${({ theme }) => theme.textColors.primary};
+  color: ${({ theme }) => theme.textColors.secondary};
 
   border-bottom: ${({ theme, active }) =>
     active ? `2px solid ${theme.specialColors.positive}` : "none"};
