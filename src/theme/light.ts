@@ -10,6 +10,7 @@ export default createThemePlatte({
     senary: "#AAB1BC",
     septenary: "#8E94A0",
     octonary: "#444444",
+    footer: "#F2F2F2",
   },
   borderColors: {
     primary: "#DBDEE2",
@@ -26,10 +27,12 @@ export default createThemePlatte({
     quinary: "#F5F6F7",
     senary: "#F5F6F7",
     septenary: "#F5F6F7",
+    footer: "#333333",
   },
   specialColors: {
     positive: "#00E4B3",
     negative: "#ED2040",
     normal: "#969696",
+    footer: "#FFFFFF",
   },
 });

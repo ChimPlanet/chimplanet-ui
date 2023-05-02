@@ -14,7 +14,8 @@ export type ThemeTextColorProperty =
   | "quinary"
   | "senary"
   | "septenary"
-  | "octonary";
+  | "octonary"
+  | "footer";
 
 export type ThemeBorderColorProperty =
   | "primary"
@@ -23,7 +24,11 @@ export type ThemeBorderColorProperty =
   | "quaternary"
   | "quinary";
 
-export type ThemeSpecialColorProperty = "positive" | "negative" | "normal";
+export type ThemeSpecialColorProperty =
+  | "positive"
+  | "negative"
+  | "normal"
+  | "footer";
 
 export type ThemeBackgroundColorProperty =
   | "primary" // 기본 배경
@@ -32,7 +37,8 @@ export type ThemeBackgroundColorProperty =
   | "quaternary"
   | "quinary"
   | "senary"
-  | "septenary";
+  | "septenary"
+  | "footer";
 
 export interface ChimplanetThemePlatte {
   sizes: Record<ThemeScreenType, number>;
