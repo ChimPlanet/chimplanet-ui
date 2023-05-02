@@ -25,7 +25,7 @@ export interface JobOfferProps
   redirectURL: string;
   isBookmarked: boolean;
   onBookmarkClick(): void;
-  rowLayoutConfig: RowLayoutConfig;
+  rowLayoutConfig?: RowLayoutConfig;
 }
 
 interface RowLayoutConfig {
@@ -92,7 +92,7 @@ JobOffer.propTypes = {
 export default JobOffer;
 
 const Container = styled.div<{
-  rowConfig: RowLayoutConfig;
+  rowConfig?: RowLayoutConfig;
 }>`
   transform: translateY(0px);
   transition: transform 0.1s ease-in-out;
@@ -100,9 +100,9 @@ const Container = styled.div<{
   ${({ rowConfig }) => `
     &[data-direction="row"] {
       display: grid;
-      grid-template-columns: ${rowConfig.height}px auto;
-      column-gap: ${rowConfig.gap}px;
-      height: ${rowConfig.height}px;
+      grid-template-columns: ${rowConfig?.height}px auto;
+      column-gap: ${rowConfig?.gap}px;
+      height: ${rowConfig?.height}px;
     }
   `}
 
