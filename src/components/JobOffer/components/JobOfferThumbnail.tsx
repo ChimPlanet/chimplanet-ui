@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "react";
-import { Bookmark } from "react-feather";
+import { Bookmark } from "@/icons";
 
 import { PropTypes } from "@/libs";
 import {

@@ -1,17 +1,18 @@
-import JobOffer from "./JobOffer";
+import JobOffer, { JobOfferProps } from "./JobOffer";
 
 interface JobOfferMapContentProps {
-  isBookmarked(offer: any): boolean;
   jobs: any[];
+  offerWidth: number;
+  direction: JobOfferProps["direction"];
+  isBookmarked(offer: any): boolean;
   onClick(offer: any): void;
   onBookmarkClick(offer: any): void;
-  offerWidth: number;
-  direction: "column" | "row";
 }
 
 export const JobOfferMapContent: React.FC<JobOfferMapContentProps> = ({
   jobs,
   offerWidth = 250,
+  direction = "column",
   onClick,
   onBookmarkClick,
   isBookmarked,
@@ -20,6 +21,7 @@ export const JobOfferMapContent: React.FC<JobOfferMapContentProps> = ({
     <>
       {jobs.map((offer) => (
         <JobOffer
+          direction={direction}
           onClick={() => onClick(offer)}
           key={offer.id}
           id={offer.id}

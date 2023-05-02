@@ -12,6 +12,7 @@ export interface JobOfferProps
     >,
     "id"
   > {
+  direction: "row" | "column";
   id: number;
   thumbnailURL?: string;
   isThumbnail: boolean;
@@ -24,9 +25,16 @@ export interface JobOfferProps
   redirectURL: string;
   isBookmarked: boolean;
   onBookmarkClick(): void;
+  rowLayoutConfig: RowLayoutConfig;
+}
+
+interface RowLayoutConfig {
+  height: number;
+  gap: number;
 }
 
 export const JobOffer: React.FC<JobOfferProps> = ({
+  direction,
   id,
   title,
   thumbnailURL,
@@ -38,10 +46,15 @@ export const JobOffer: React.FC<JobOfferProps> = ({
   writer = "침플래닛",
   isBookmarked = false,
   onBookmarkClick,
+  rowLayoutConfig,
   ...props
 }) => {
   return (
-    <Container {...(props as any)}>
+    <Container
+      data-direction={direction}
+      rowConfig={rowLayoutConfig}
+      {...(props as any)}
+    >
       <JobOfferThumbnail
         src={thumbnailURL ?? ""}
         alt={title}
@@ -78,15 +91,19 @@ JobOffer.propTypes = {
 
 export default JobOffer;
 
-const Container = styled.div`
+const Container = styled.div<{
+  rowConfig: RowLayoutConfig;
+}>`
   transform: translateY(0px);
   transition: transform 0.1s ease-in-out;
 
-  ${({ theme }) => theme.media.mobile`
-    display: grid;
-    grid-template-columns: 120px auto;
-    column-gap: 20px;
-    height: 120px;
+  ${({ rowConfig }) => `
+    &[data-direction="row"] {
+      display: grid;
+      grid-template-columns: ${rowConfig.height}px auto;
+      column-gap: ${rowConfig.gap}px;
+      height: ${rowConfig.height}px;
+    }
   `}
 
   &:hover {
@@ -96,8 +113,4 @@ const Container = styled.div`
 
 const Information = styled.div`
   margin-top: 20px;
-
-  ${({ theme }) => theme.media.mobile`
-    margin-top: 0px;
-  `}
 `;
