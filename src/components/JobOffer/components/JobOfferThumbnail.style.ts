@@ -4,14 +4,7 @@ export const Container = styled.div`
   position: relative;
   top: 0;
   left: 0;
-  height: 250px;
-
-  ${({ theme }) => theme.media.tablet`
-    height: 220px;
-  `}
-  ${({ theme }) => theme.media.mobile`
-    height: 120px;
-  `}
+  aspect-ratio: 1/1;
 `;
 
 export const ThumbnailImage = styled.img`
