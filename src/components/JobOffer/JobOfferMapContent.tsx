@@ -4,6 +4,7 @@ interface JobOfferMapContentProps {
   jobs: any[];
   offerWidth: number;
   direction: JobOfferProps["direction"];
+  rowLayoutConfig: JobOfferProps["rowLayoutConfig"];
   isBookmarked(offer: any): boolean;
   onClick(offer: any): void;
   onBookmarkClick(offer: any): void;
@@ -13,6 +14,7 @@ export const JobOfferMapContent: React.FC<JobOfferMapContentProps> = ({
   jobs,
   offerWidth = 250,
   direction = "column",
+  rowLayoutConfig,
   onClick,
   onBookmarkClick,
   isBookmarked,
@@ -39,6 +41,7 @@ export const JobOfferMapContent: React.FC<JobOfferMapContentProps> = ({
           style={{
             width: offerWidth,
           }}
+          rowLayoutConfig={rowLayoutConfig}
         />
       ))}
     </>
