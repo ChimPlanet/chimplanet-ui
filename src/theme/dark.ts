@@ -1,30 +1,28 @@
-import baseTheme from "@/theme/base";
+import { createThemePlatte } from "@/theme/base";
 
-const darkColors = {
-  main: "#fff",
-  sub: "#868E96",
-  logo: "#00BD2F",
-  border: "#3A3B3D",
-  borderSpecial: "#DBDEE2",
-  borderPoint: "#A4ACB3",
-  black: "#000000",
-  help: "#fff",
-};
-
-const darkBackgroundColor = {
-  main: "#1E1E1E",
-  header: "#292A2D",
-  modal: "#28292B",
-  input: "#f5f6f7",
-  sub: "#3E4145",
-  searchbar: "#28292B",
-  searchbarActive: "#242527",
-};
-
-export const darkTheme = {
-  colors: darkColors,
-  backgroundColor: darkBackgroundColor,
-  ...baseTheme,
-};
-
-export default darkTheme;
+export default createThemePlatte({
+  textColors: {
+    primary: "#FFFFFF",
+    secondary: "#A8A8A8",
+    tertiary: "#A8A8A8",
+    quaternary: "#868E96",
+    quinary: "#101C33",
+  },
+  borderColors: {
+    primary: "#3A3B3D",
+    secondary: "#DBDEE2",
+    tertiary: "#A4ACB3",
+  },
+  bgColors: {
+    primary: "#1e1f21",
+    secondary: "#292A2D",
+    tertiary: "#3E4145",
+    quaternary: "#28292B",
+    quinary: "#242527",
+  },
+  specialColors: {
+    positive: "#00E4B3",
+    negative: "#ED2040",
+    normal: "#A8A8A8",
+  },
+});

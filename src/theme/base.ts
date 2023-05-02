@@ -1,5 +1,5 @@
 import { ScreenType } from "@/contexts";
-import { FlattenSimpleInterpolation, css } from "@/libs";
+import { DefaultTheme, FlattenSimpleInterpolation, css } from "@/libs";
 
 // ! @media 감지 너비
 const sizes = {
@@ -56,10 +56,19 @@ Object.keys(sizes).reduce((acc, label) => {
   return acc;
 }, media);
 
-export const baseTheme = {
+type BaseThemeProperty = "media" | "sizes" | "widths";
+
+export const baseTheme: Pick<DefaultTheme, BaseThemeProperty> = {
   media,
   widths,
   sizes,
 };
 
 export default baseTheme;
+
+export const createThemePlatte = (
+  platte: Omit<DefaultTheme, BaseThemeProperty>
+): DefaultTheme => ({
+  ...platte,
+  ...baseTheme,
+});
