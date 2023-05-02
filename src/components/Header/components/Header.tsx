@@ -81,6 +81,6 @@ const BackgroundSheet = styled.div`
   background-color: rgba(0, 0, 0, 0.107);
 
   &[data-mobile="true"] {
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.bgColors.secondary};
   }
 `;
