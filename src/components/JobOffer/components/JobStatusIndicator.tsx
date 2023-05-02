@@ -1,6 +1,10 @@
 import { PropTypes } from "@/libs";
 
-import { Container, Indicator } from "./JobStatusIndicator.style";
+import {
+  Container,
+  GoingIndicator,
+  NormalIndicator,
+} from "./JobStatusIndicator.style";
 
 interface JobStatusIndicatorProps {
   isClosed: boolean;
@@ -13,11 +17,11 @@ export const JobStatusIndicator: React.FC<JobStatusIndicatorProps> = ({
 }) => {
   return (
     <Container>
-      <Indicator
-        color={isClosed ? "#ED2040" : "#00BD2F"}
+      <GoingIndicator
+        isClosed={isClosed}
         children={isClosed ? "마감" : "구인 중"}
       />
-      {isRegular && <Indicator color="#969696">상시모집</Indicator>}
+      {isRegular && <NormalIndicator>상시모집</NormalIndicator>}
     </Container>
   );
 };

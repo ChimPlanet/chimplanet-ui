@@ -32,5 +32,5 @@ export const Writer = styled.p`
 export const Detail = styled.p`
   margin-top: 5px;
   font-size: 14px;
-  color: #8e94a0;
+  color: ${({ theme }) => theme.textColors.tertiary};
 `;

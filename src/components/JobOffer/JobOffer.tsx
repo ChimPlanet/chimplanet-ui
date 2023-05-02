@@ -98,7 +98,7 @@ const Container = styled.div<{
   transition: transform 0.1s ease-in-out;
 
   & .job-offer__information {
-    margin-top: 20px;
+    margin-top: 15px;
   }
 
   ${({ rowConfig }) => `

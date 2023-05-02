@@ -6,13 +6,23 @@ export const Container = styled.div`
   font-weight: 500;
 `;
 
-export const Indicator = styled.span`
+const BaseIndicator = styled.span`
   display: inline-block;
   padding: 2px 13px;
-  /* padding-top: 5px; */
-  border: ${({ color }) => `1px solid ${color}`};
+  border: 1px solid transparent;
   border-radius: 4px;
-  color: ${({ color }) => color};
   margin-right: 8px;
   font-style: normal;
 `;
+
+export const GoingIndicator = styled(BaseIndicator)<{ isClosed: boolean }>(
+  ({ theme, isClosed }) => ({
+    borderColor: theme.specialColors[isClosed ? "negative" : "positive"],
+    color: theme.specialColors[isClosed ? "negative" : "positive"],
+  })
+);
+
+export const NormalIndicator = styled(BaseIndicator)(({ theme }) => ({
+  borderColor: theme.specialColors.normal,
+  color: theme.specialColors.normal,
+}));
