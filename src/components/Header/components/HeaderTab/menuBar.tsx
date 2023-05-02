@@ -2,7 +2,7 @@ import { useState, useCallback, useRef, MutableRefObject } from "react";
 import { styled, Link, useLocation } from "@/libs";
 import { Menu } from "@/icons";
 
-import { EVENT_PATH, HOME_PATH, OFFICIAL_PATH } from "@/constants/route";
+import { JOB_PATH, HOME_PATH, OFFICIAL_PATH } from "@/constants/route";
 import { FloatingMenu } from "@/components";
 import useTimer from "../../hooks/useTimer";
 
@@ -43,8 +43,8 @@ export default function MenuBar() {
           </MenuItem>
         )}
 
-        <MenuItem to={EVENT_PATH} active={pathname === EVENT_PATH}>
-          이벤트
+        <MenuItem to={JOB_PATH} active={pathname === JOB_PATH}>
+          공고
         </MenuItem>
         <MenuItem to={OFFICIAL_PATH} active={pathname == OFFICIAL_PATH}>
           공식
