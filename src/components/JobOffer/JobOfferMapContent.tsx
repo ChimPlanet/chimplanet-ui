@@ -37,7 +37,7 @@ export const JobOfferMapContent: React.FC<JobOfferMapContentProps> = ({
           isBookmarked={isBookmarked(offer)}
           isClosed={offer.isClosed}
           isRegular={offer.isRegular}
-          onBookmarkClick={onBookmarkClick.bind(null, offer)}
+          onBookmarkClick={onBookmarkClick.bind(null, offer.data)}
           style={{
             width: offerWidth,
           }}
