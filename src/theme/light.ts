@@ -19,6 +19,7 @@ export default createThemePlatte({
     tertiary: "#F5F6F7",
     quaternary: "#FFFFFF",
     quinary: "#F5F6F7",
+    senary: "",
   },
   specialColors: {
     positive: "#00E4B3",

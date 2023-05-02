@@ -13,15 +13,15 @@ const widths = {
   tablet: 720,
   desktop: 1060,
   mobile: "100%",
-};
+} as any;
 
 const media: Record<
   ScreenType,
-  (...args: string[]) => FlattenSimpleInterpolation
+  (...args: (string | TemplateStringsArray)[]) => FlattenSimpleInterpolation
 > = {
-  tablet: (...args: string[]) => "" as any,
-  desktop: (...args: string[]) => "" as any,
-  mobile: (...args: string[]) => "" as any,
+  tablet: (...args) => "" as any,
+  desktop: (...args) => "" as any,
+  mobile: (...args) => "" as any,
 };
 
 Object.keys(sizes).reduce((acc, label) => {

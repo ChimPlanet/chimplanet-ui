@@ -25,7 +25,7 @@ const Container = styled.div`
   border-radius: 100px;
   width: 350px;
   grid-template-columns: auto 16px;
-  background-color: ${({ theme }) => theme.backgroundColor.input};
+  background-color: ${({ theme }) => theme.bgColors.senary};
 
   ${({ theme }) => theme.media.mobile`
     display: none;
@@ -36,13 +36,14 @@ const SearchInput = styled.input`
   padding: 0px;
   margin: 0px;
   outline: none;
-  color: ${({ theme }) => theme.colors.sub};
+  color: ${({ theme }) => theme.textColors.quaternary};
 
   &:focus {
     outline: none;
   }
 `;
 const WrapIcon = styled.div`
+  color: ${({ theme }) => theme.textColors.quinary};
   & svg {
     margin: auto;
   }

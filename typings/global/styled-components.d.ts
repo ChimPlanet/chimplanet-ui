@@ -4,10 +4,10 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     sizes: Record<ScreenType, number>;
-    widths: Record<ScreenType, number | string>;
+    widths: Record<ScreenType, number>;
     media: Record<
       ScreenType,
-      (...args: string[]) => FlattenSimpleInterpolation
+      (...args: (string | TemplateStringsArray)[]) => FlattenSimpleInterpolation
     >;
     textColors: Record<ThemeTextColorProperty, string>;
     borderColors: Record<ThemeBorderColorProperty, string>;
@@ -32,4 +32,5 @@ export type ThemeBackgroundColorProperty =
   | "secondary" // 헤더, 부모 메뉴
   | "tertiary" // 메뉴
   | "quaternary"
-  | "quinary";
+  | "quinary"
+  | "senary";

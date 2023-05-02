@@ -50,8 +50,8 @@ const Container = styled.header`
   left: 0;
   z-index: 100;
   width: 100%;
-  border-bottom: ${({ theme }) => `1px solid ${theme.colors.border}`};
-  background-color: ${({ theme }) => theme.backgroundColor.header};
+  border-bottom: ${({ theme }) => `1px solid ${theme.borderColors.primary}`};
+  background-color: ${({ theme }) => theme.bgColors.secondary};
 `;
 
 const Content = styled.div`

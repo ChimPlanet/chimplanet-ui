@@ -67,13 +67,12 @@ export default function MenuBar() {
 const Container = styled.div`
   display: flex;
   position: relative;
-  color: #444444;
   font-size: 14px;
   font-weight: 700;
   margin-top: 30px;
 `;
 
-const MenuItem = styled<any>(Link)`
+const MenuItem = styled(Link)<{ active: boolean }>`
   cursor: pointer;
   display: flex;
   text-align: center;
@@ -81,15 +80,16 @@ const MenuItem = styled<any>(Link)`
   user-select: none;
   padding: 0px 23px;
 
-  color: ${({ theme }) => theme.colors.main};
+  color: ${({ theme }) => theme.textColors.primary};
 
   border-bottom: ${({ theme, active }) =>
-    active ? `2px solid ${theme.colors.logo}` : "none"};
+    active ? `2px solid ${theme.specialColors.positive}` : "none"};
 
   &:hover {
-    border-bottom: ${({ theme }) => `2px solid ${theme.colors.border}`};
+    border-bottom: ${({ theme }) =>
+      `2px solid ${theme.borderColors.secondary}`};
   }
-`;
+` as any;
 
 const CategoryItem = styled(MenuItem)`
   padding-left: 0;
