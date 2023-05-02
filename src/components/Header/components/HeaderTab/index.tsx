@@ -32,10 +32,10 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
         {!mobile ? (
           <BookmarkButton />
         ) : (
-          <div>
+          <MobileIcons>
             <IconButton onClick={activeSearchTab} children={<Search />} />
             <IconButton onClick={handleMobileMenu} children={<Menu />} />
-          </div>
+          </MobileIcons>
         )}
       </UpperContainer>
       <BottomContainer>
@@ -73,4 +73,8 @@ const IconButton = styled.button`
   & svg {
     margin: auto;
   }
+`;
+
+const MobileIcons = styled.div`
+  margin-right: 25px;
 `;
