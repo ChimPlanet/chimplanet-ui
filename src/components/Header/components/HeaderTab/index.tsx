@@ -1,11 +1,12 @@
-import { styled, PropTypes } from "@/libs";
+import { styled, PropTypes, Link } from "@/libs";
 import { Menu, Search } from "@/icons";
 
 import { BookmarkButton } from "@/components";
-import Logo from "./logo";
 import MenuBar from "./menuBar";
 import OrnamentalSearchBar from "./ornamentalSearchBar";
 import { useHeader } from "@/components/Header/context/headerContext";
+import { ChimplanetIcon } from "@/icons";
+import { HOME_PATH } from "@/constants/route";
 
 interface HeaderTabProps {
   activeSearchTab(): void;
@@ -26,7 +27,9 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
     <Container>
       <UpperContainer>
         <Group>
-          <Logo />
+          <Logo data-mobile={mobile} to={HOME_PATH}>
+            <ChimplanetIcon mid={mobile} />
+          </Logo>
           <OrnamentalSearchBar onClick={activeSearchTab} />
         </Group>
         {!mobile ? (
@@ -67,6 +70,12 @@ const Group = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 30px;
+`;
+
+const Logo = styled(Link)`
+  &[data-mobile="true"] {
+    padding-left: 15px;
+  }
 `;
 
 const IconButton = styled.button`
