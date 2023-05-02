@@ -6,9 +6,10 @@ export default createThemePlatte({
     secondary: "#444444", // header menu
     tertiary: "#8E94A0",
     quaternary: "#868E96", // header o search
-    quinary: "#ffffff",
+    quinary: "#101C33",
     senary: "#AAB1BC",
     septenary: "#8E94A0",
+    octonary: "#444444",
   },
   borderColors: {
     primary: "#DBDEE2",
@@ -24,6 +25,7 @@ export default createThemePlatte({
     quaternary: "#FFFFFF",
     quinary: "#F5F6F7",
     senary: "#F5F6F7",
+    septenary: "#F5F6F7",
   },
   specialColors: {
     positive: "#00E4B3",

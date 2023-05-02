@@ -13,7 +13,8 @@ export type ThemeTextColorProperty =
   | "quaternary"
   | "quinary"
   | "senary"
-  | "septenary";
+  | "septenary"
+  | "octonary";
 
 export type ThemeBorderColorProperty =
   | "primary"
@@ -30,7 +31,8 @@ export type ThemeBackgroundColorProperty =
   | "tertiary" // 메뉴
   | "quaternary"
   | "quinary"
-  | "senary";
+  | "senary"
+  | "septenary";
 
 export interface ChimplanetThemePlatte {
   sizes: Record<ThemeScreenType, number>;

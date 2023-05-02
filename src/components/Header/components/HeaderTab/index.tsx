@@ -79,6 +79,7 @@ const Logo = styled(Link)`
 `;
 
 const IconButton = styled.button`
+  color: ${({ theme }) => theme.textColors.primary};
   & svg {
     margin: auto;
   }

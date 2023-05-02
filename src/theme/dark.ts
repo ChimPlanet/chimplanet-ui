@@ -6,9 +6,10 @@ export default createThemePlatte({
     secondary: "#ffffff", // header menu
     tertiary: "#A8A8A8", // JobOffer Detail
     quaternary: "#868E96", // header o search
-    quinary: "#000000",
+    quinary: "#101C33",
     senary: "#A8A8A8",
     septenary: "#ffffff",
+    octonary: "#8E8E8F",
   },
   borderColors: {
     primary: "#3A3B3D",
@@ -24,6 +25,7 @@ export default createThemePlatte({
     quaternary: "#28292B",
     quinary: "#242527",
     senary: "#F5F6F7",
+    septenary: "#1F2022",
   },
   specialColors: {
     positive: "#00E4B3",
