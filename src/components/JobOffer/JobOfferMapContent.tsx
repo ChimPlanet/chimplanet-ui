@@ -6,6 +6,7 @@ interface JobOfferMapContentProps {
   onClick(offer: any): void;
   onBookmarkClick(offer: any): void;
   offerWidth: number;
+  direction: "column" | "row";
 }
 
 export const JobOfferMapContent: React.FC<JobOfferMapContentProps> = ({
@@ -32,7 +33,7 @@ export const JobOfferMapContent: React.FC<JobOfferMapContentProps> = ({
           isBookmarked={isBookmarked(offer)}
           isClosed={offer.isClosed}
           isRegular={offer.isRegular}
-          onBookmarkClick={() => onBookmarkClick(offer)}
+          onBookmarkClick={onBookmarkClick.bind(null, offer)}
           style={{
             width: offerWidth,
           }}
