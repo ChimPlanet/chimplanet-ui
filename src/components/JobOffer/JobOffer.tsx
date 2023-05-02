@@ -62,7 +62,7 @@ export const JobOffer: React.FC<JobOfferProps> = ({
         isBookmarked={isBookmarked}
         onBookmarkClick={onBookmarkClick}
       />
-      <Information>
+      <div className="job-offer__information">
         <JobStatusIndicator isRegular={isRegular} isClosed={isClosed} />
         <JobTypography
           writer={writer}
@@ -70,7 +70,7 @@ export const JobOffer: React.FC<JobOfferProps> = ({
           viewCount={viewCount}
           title={title}
         />
-      </Information>
+      </div>
     </Container>
   );
 };
@@ -97,20 +97,24 @@ const Container = styled.div<{
   transform: translateY(0px);
   transition: transform 0.1s ease-in-out;
 
+  & .job-offer__information {
+    margin-top: 20px;
+  }
+
   ${({ rowConfig }) => `
     &[data-direction="row"] {
       display: grid;
       grid-template-columns: ${rowConfig?.height}px auto;
       column-gap: ${rowConfig?.gap}px;
       height: ${rowConfig?.height}px;
+
+      & .job-offer__information {
+        margin-top: 0px;
+      }
     }
   `}
 
   &:hover {
     transform: translateY(-10px);
   }
-`;
-
-const Information = styled.div`
-  margin-top: 20px;
 `;
