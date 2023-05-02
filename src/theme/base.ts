@@ -1,5 +1,5 @@
 import { ScreenType } from "@/contexts";
-import { DefaultTheme, FlattenSimpleInterpolation, css } from "@/libs";
+import { ChimplanetThemePlatte, FlattenSimpleInterpolation, css } from "@/libs";
 
 // ! @media 감지 너비
 const sizes = {
@@ -58,7 +58,7 @@ Object.keys(sizes).reduce((acc, label) => {
 
 type BaseThemeProperty = "media" | "sizes" | "widths";
 
-export const baseTheme: Pick<DefaultTheme, BaseThemeProperty> = {
+export const baseTheme: Pick<ChimplanetThemePlatte, BaseThemeProperty> = {
   media,
   widths,
   sizes,
@@ -67,8 +67,8 @@ export const baseTheme: Pick<DefaultTheme, BaseThemeProperty> = {
 export default baseTheme;
 
 export const createThemePlatte = (
-  platte: Omit<DefaultTheme, BaseThemeProperty>
-): DefaultTheme => ({
+  platte: Omit<ChimplanetThemePlatte, BaseThemeProperty>
+): ChimplanetThemePlatte => ({
   ...platte,
   ...baseTheme,
 });

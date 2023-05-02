@@ -1,8 +1,9 @@
 import { createContext, useContext, useMemo } from "react";
 
 import useScreenWidth from "@/hooks/useScreenWidth";
+import { ThemeScreenType } from "@/libs";
 
-export type ScreenType = "desktop" | "tablet" | "mobile";
+export type ScreenType = ThemeScreenType;
 
 const screenTypeContext = createContext<ScreenType>("desktop");
 
