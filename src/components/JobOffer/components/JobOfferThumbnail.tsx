@@ -7,7 +7,9 @@ import {
   ThumbnailImage,
   BookmarkButton,
 } from "./JobOfferThumbnail.style";
-import DefaultThumbnail from "@/assets/images/default_thumbnail.png";
+
+import defaultImage from "@/constants/defaultImage";
+import { useScreenType } from "@/contexts";
 
 interface JobOfferThumbnailProps {
   src: string;
@@ -24,6 +26,8 @@ export const JobOfferThumbnail: React.FC<JobOfferThumbnailProps> = ({
   isBookmarked,
   onBookmarkClick,
 }) => {
+  const screenType = useScreenType();
+
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
     onBookmarkClick();
@@ -32,7 +36,7 @@ export const JobOfferThumbnail: React.FC<JobOfferThumbnailProps> = ({
     <Container>
       <ThumbnailImage
         referrerPolicy="no-referrer"
-        src={isThumbnail ? src : DefaultThumbnail}
+        src={isThumbnail ? src : defaultImage[screenType]}
         alt={alt}
       />
       <BookmarkButton onClick={handleClick}>
