@@ -5,6 +5,8 @@ import { lightTheme, darkTheme } from "@/theme";
 
 const themeUpdateContext = createContext<(() => void) | null>(null);
 
+const themeModeContext = createContext<string>("light");
+
 /**
  * @param {{children: JSX.Element}}
  */
@@ -14,17 +16,21 @@ export const CPThemeProvider: React.FC<
   const [theme, toggle] = useCPTheme();
 
   return (
-    <ThemeProvider
-      theme={onlyLight || theme === "light" ? lightTheme : darkTheme}
-    >
+    <themeModeContext.Provider value={theme}>
       <themeUpdateContext.Provider value={toggle}>
-        {children}
+        <ThemeProvider
+          theme={onlyLight || theme === "light" ? lightTheme : darkTheme}
+        >
+          {children}
+        </ThemeProvider>
       </themeUpdateContext.Provider>
-    </ThemeProvider>
+    </themeModeContext.Provider>
   );
 };
 
 export const useThemeUpdater = () => useContext(themeUpdateContext);
+
+export const useThemeMode = () => useContext(themeModeContext);
 
 ThemeProvider.propTypes = {
   children: PropTypes.element.isRequired,
