@@ -1,7 +1,9 @@
-import { PropsWithChildren, useState } from "react";
-import { ThemeProvider, PropTypes } from "@/libs";
+import { PropsWithChildren, createContext, useContext, useState } from "react";
+import { ThemeProvider, PropTypes, ChimplanetThemePlatte } from "@/libs";
 
 import { lightTheme, darkTheme } from "@/theme";
+
+const themeUpdateContext = createContext<(() => void) | null>(null);
 
 /**
  * @param {{children: JSX.Element}}
@@ -9,22 +11,26 @@ import { lightTheme, darkTheme } from "@/theme";
 export const CPThemeProvider: React.FC<
   PropsWithChildren<{ onlyLight?: boolean }>
 > = ({ children, onlyLight }) => {
-  const [theme] = useCPTheme();
+  const [theme, toggle] = useCPTheme();
 
   return (
     <ThemeProvider
       theme={onlyLight || theme === "light" ? lightTheme : darkTheme}
     >
-      {children}
+      <themeUpdateContext.Provider value={toggle}>
+        {children}
+      </themeUpdateContext.Provider>
     </ThemeProvider>
   );
 };
+
+export const useThemeUpdater = () => useContext(themeUpdateContext);
 
 ThemeProvider.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export function useCPTheme() {
+export function useCPTheme(): [string, () => void] {
   // browser theme information
   const isBrowserDarkMode =
     window.matchMedia &&
