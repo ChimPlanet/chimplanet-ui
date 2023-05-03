@@ -15,7 +15,8 @@ export type ThemeTextColorProperty =
   | "senary"
   | "septenary"
   | "octonary"
-  | "footer";
+  | "footer"
+  | "modalIcon";
 
 export type ThemeBorderColorProperty =
   | "primary"

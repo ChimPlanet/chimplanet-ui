@@ -11,6 +11,7 @@ export default createThemePlatte({
     septenary: "#ffffff",
     octonary: "#8E8E8F",
     footer: "#101C33",
+    modalIcon: "#ffffff",
   },
   borderColors: {
     primary: "#3A3B3D",
