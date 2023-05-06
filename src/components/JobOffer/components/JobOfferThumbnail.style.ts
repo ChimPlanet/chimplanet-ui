@@ -26,9 +26,15 @@ export const BookmarkButton = styled.button`
   right: 0;
   margin-top: 15px;
   margin-right: 16px;
+  padding: 0px;
+  color: ${({ theme }) => theme.specialColors.positive};
 
   ${({ theme }) => theme.media.mobile`
     margin-top: 12px;
     margin-right: 12px;
-  `}
+
+    & svg {
+      width: 12px;
+    }
+  `};
 `;
