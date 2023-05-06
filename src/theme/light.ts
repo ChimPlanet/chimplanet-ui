@@ -38,9 +38,9 @@ export default createThemePlatte({
     footer: "#FFFFFF",
   },
   buttonColors: {
-    text: "",
-    background: "",
-    activeText: "",
-    activeBackground: "",
+    text: "#101C33",
+    background: "#FFFFFF",
+    activeText: "#FFFFFF",
+    activeBackground: "#27282B",
   },
 });
