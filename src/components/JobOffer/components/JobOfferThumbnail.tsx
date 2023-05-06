@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "react";
-import { Bookmark } from "@/icons";
+import { SharpBookmark } from "@/icons";
 
 import { PropTypes } from "@/libs";
 import {
@@ -40,7 +40,7 @@ export const JobOfferThumbnail: React.FC<JobOfferThumbnailProps> = ({
         alt={alt}
       />
       <BookmarkButton onClick={handleClick}>
-        <Bookmark />
+        <SharpBookmark filled={isBookmarked} />
       </BookmarkButton>
     </Container>
   );
