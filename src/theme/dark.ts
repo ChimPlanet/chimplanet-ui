@@ -37,4 +37,10 @@ export default createThemePlatte({
     normal: "#A8A8A8",
     footer: "#2B2C30",
   },
+  buttonColors: {
+    text: "#DDE3F3",
+    background: "#292A2D",
+    activeText: "#8E94A0",
+    activeBackground: "#ffffff",
+  },
 });

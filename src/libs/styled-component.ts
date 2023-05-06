@@ -26,6 +26,12 @@ export type ThemeBorderColorProperty =
   | "quaternary"
   | "quinary";
 
+export type ThemeButtonColorProperty =
+  | "text"
+  | "background"
+  | "activeText"
+  | "activeBackground";
+
 export type ThemeSpecialColorProperty =
   | "positive"
   | "negative"
@@ -53,6 +59,7 @@ export interface ChimplanetThemePlatte {
   borderColors: Record<ThemeBorderColorProperty, string>;
   bgColors: Record<ThemeBackgroundColorProperty, string>;
   specialColors: Record<ThemeSpecialColorProperty, string>;
+  buttonColors: Record<ThemeButtonColorProperty, string>;
 }
 
 const styled = Styled as ThemedStyledInterface<ChimplanetThemePlatte>;
