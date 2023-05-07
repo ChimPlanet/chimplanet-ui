@@ -3,24 +3,24 @@ import { styled } from "@/libs";
 export const Container = styled.div`
   position: absolute;
   bottom: 0;
-  left: 0;
-  margin: 20px;
+  left: 30px;
+  bottom: 18px;
   z-index: 1;
   color: #fff;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
 `;
 
 export const Button = styled.span`
   display: inline-block;
-  width: 35px;
-  height: 35px;
+  width: 36px;
+  height: 36px;
   text-align: center;
   background-color: #191919;
-  line-height: 35px;
+  line-height: 36px;
   border-radius: 100px;
   & svg {
     margin: auto;
@@ -33,6 +33,8 @@ export const Indicator = styled.div`
   text-align: center;
 
   width: 80px;
-  padding: 10px 20px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 16px;
   border-radius: 100px;
 `;

@@ -13,10 +13,15 @@ export const Container = styled.section`
     }`}
   `}
   ${({ theme }) => theme.media.tablet`
-    ${`.carousel__container {
+    ${`
+    .carousel__container {
       width: ${theme.widths.tablet + 2 * horizontalPadding}px;
       height: 200px;
-    }`}
+    }
+    .carousel-handle {
+      display: none;
+    }
+    `}
   `}
   
   ${({ theme }) => theme.media.mobile`
