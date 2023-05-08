@@ -49,7 +49,7 @@ export const MenuBar: React.FC<{ desktop?: boolean }> = ({ desktop }) => {
           홈
         </MenuItem>
       ),
-    [desktop, fire, setIsCategoryVisible]
+    [desktop, fire, setIsCategoryVisible, pathname]
   );
 
   return (
