@@ -1,4 +1,10 @@
-import { useState, useCallback, useRef, MutableRefObject } from "react";
+import {
+  useState,
+  useCallback,
+  useRef,
+  MutableRefObject,
+  useMemo,
+} from "react";
 import { styled, Link, useLocation } from "@/libs";
 import { Menu } from "@/icons";
 
@@ -25,29 +31,34 @@ export default function MenuBar() {
   // ! 0.5 초 안에 카테고리 안으로 들어가지 않는 경우, 카테고리가 닫힘
   const { clear, fire } = useTimer(closeCategory, 500);
 
+  const categoryOrElseEl = useMemo(
+    () =>
+      sizeType === "desktop" ? (
+        <CategoryItem
+          data-hover-event="false"
+          onMouseOver={() => setIsCategoryVisible(true)}
+          onMouseOut={fire}
+        >
+          <Menu style={{ marginTop: -5 }} />
+          <span>&nbsp;&nbsp; 카테고리</span>
+        </CategoryItem>
+      ) : (
+        <MenuItem
+          data-hover-event="true"
+          to={HOME_PATH}
+          active={pathname === HOME_PATH}
+        >
+          홈
+        </MenuItem>
+      ),
+    [sizeType, fire, setIsCategoryVisible]
+  );
+
   return (
     <>
       <Container ref={categoryAnchor}>
-        {/* Size에 따라서 메뉴바 변경 */}
-        {sizeType !== "mobile" ? (
-          <CategoryItem
-            data-hover-event="false"
-            onMouseOver={() => setIsCategoryVisible(true)}
-            onMouseOut={fire}
-          >
-            <Menu style={{ marginTop: -5 }} />
-            <span>&nbsp;&nbsp; 카테고리</span>
-          </CategoryItem>
-        ) : (
-          <MenuItem
-            data-hover-event="true"
-            to={HOME_PATH}
-            active={pathname === HOME_PATH}
-          >
-            홈
-          </MenuItem>
-        )}
-
+        {/* ScreenType 에 따라서 메뉴바 변경 */}
+        {categoryOrElseEl}
         <MenuItem
           data-hover-event="true"
           to={JOB_PATH}
