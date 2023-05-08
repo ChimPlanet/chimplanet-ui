@@ -3,7 +3,7 @@ import React, { createContext, useContext } from "react";
 export interface HeaderContextState {
   CategoryOverlayComponent?: React.FC<{ close?(): void }>;
   SearchTabComponent?: React.FC<{
-    mobile: boolean;
+    desktop: boolean;
     activeHeaderTab(): void;
     afterSearch(): void;
   }>;

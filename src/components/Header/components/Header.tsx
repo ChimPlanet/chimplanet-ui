@@ -11,7 +11,7 @@ export const Header = wrapHeaderContext(() => {
   const [activeTab, setActiveTab] = useState("header");
   const screenType = useScreenType();
 
-  const isMobile = useMemo(() => screenType === "mobile", [screenType]);
+  const isDesktop = useMemo(() => screenType === "desktop", [screenType]);
 
   const activeSearchTab = useCallback(() => {
     setActiveTab("search");
@@ -24,14 +24,14 @@ export const Header = wrapHeaderContext(() => {
   return (
     <>
       {activeTab === "search" && (
-        <BackgroundSheet data-mobile={isMobile} onClick={activeHeaderTab} />
+        <BackgroundSheet data-desktop={isDesktop} onClick={activeHeaderTab} />
       )}
       <Container>
         <Content>
-          <HeaderTab mobile={isMobile} activeSearchTab={activeSearchTab} />
+          <HeaderTab desktop={isDesktop} activeSearchTab={activeSearchTab} />
           {activeTab === "search" && SearchTabComponent && (
             <SearchTabComponent
-              mobile={isMobile}
+              desktop={isDesktop}
               activeHeaderTab={activeHeaderTab}
               afterSearch={activeHeaderTab}
             />
@@ -80,7 +80,7 @@ const BackgroundSheet = styled.div`
   left: 0;
   background-color: rgba(0, 0, 0, 0.107);
 
-  &[data-mobile="true"] {
+  &[data-desktop="false"] {
     background-color: ${({ theme }) => theme.bgColors.secondary};
   }
 `;

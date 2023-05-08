@@ -10,12 +10,12 @@ import { HOME_PATH } from "@/constants/route";
 
 interface HeaderTabProps {
   activeSearchTab(): void;
-  mobile: boolean;
+  desktop: boolean;
 }
 
 export const HeaderTab: React.FC<HeaderTabProps> = ({
   activeSearchTab,
-  mobile,
+  desktop,
 }) => {
   const { activeMobileMenu } = useHeader();
 
@@ -27,12 +27,12 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
     <Container>
       <UpperContainer>
         <Group>
-          <Logo data-mobile={mobile} to={HOME_PATH}>
-            <ChimplanetIcon mid={mobile} />
+          <Logo data-desktop={`${desktop}`} to={HOME_PATH}>
+            <ChimplanetIcon mid={desktop} />
           </Logo>
           <OrnamentalSearchBar onClick={activeSearchTab} />
         </Group>
-        {!mobile ? (
+        {!desktop ? (
           <BookmarkButton />
         ) : (
           <MobileIcons>
@@ -42,7 +42,7 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
         )}
       </UpperContainer>
       <BottomContainer>
-        <MenuBar />
+        <MenuBar desktop={desktop} />
       </BottomContainer>
     </Container>
   );

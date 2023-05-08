@@ -12,13 +12,11 @@ import { JOB_PATH, HOME_PATH, OFFICIAL_PATH } from "@/constants/route";
 import { FloatingMenu } from "@/components";
 import useTimer from "../../hooks/useTimer";
 
-import { useScreenType } from "@/contexts";
 import { useHeader } from "../../context/headerContext";
 
-export default function MenuBar() {
+export const MenuBar: React.FC<{ desktop?: boolean }> = ({ desktop }) => {
   const { pathname } = useLocation();
   const { CategoryOverlayComponent } = useHeader();
-  const sizeType = useScreenType();
 
   const categoryAnchor = useRef<HTMLDivElement | null>(null);
   const [isCategoryVisible, setIsCategoryVisible] = useState(false);
@@ -33,7 +31,7 @@ export default function MenuBar() {
 
   const categoryOrElseEl = useMemo(
     () =>
-      sizeType === "desktop" ? (
+      desktop ? (
         <CategoryItem
           data-hover-event="false"
           onMouseOver={() => setIsCategoryVisible(true)}
@@ -51,7 +49,7 @@ export default function MenuBar() {
           홈
         </MenuItem>
       ),
-    [sizeType, fire, setIsCategoryVisible]
+    [desktop, fire, setIsCategoryVisible]
   );
 
   return (
@@ -86,7 +84,9 @@ export default function MenuBar() {
       )}
     </>
   );
-}
+};
+
+export default MenuBar;
 
 const Container = styled.div`
   display: flex;
