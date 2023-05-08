@@ -31,6 +31,7 @@ export default function MenuBar() {
         {/* Size에 따라서 메뉴바 변경 */}
         {sizeType !== "mobile" ? (
           <CategoryItem
+            data-hover-event="false"
             onMouseOver={() => setIsCategoryVisible(true)}
             onMouseOut={fire}
           >
@@ -38,15 +39,27 @@ export default function MenuBar() {
             <span>&nbsp;&nbsp; 카테고리</span>
           </CategoryItem>
         ) : (
-          <MenuItem to={HOME_PATH} active={pathname === HOME_PATH}>
+          <MenuItem
+            data-hover-event="true"
+            to={HOME_PATH}
+            active={pathname === HOME_PATH}
+          >
             홈
           </MenuItem>
         )}
 
-        <MenuItem to={JOB_PATH} active={pathname === JOB_PATH}>
+        <MenuItem
+          data-hover-event="true"
+          to={JOB_PATH}
+          active={pathname === JOB_PATH}
+        >
           공고
         </MenuItem>
-        <MenuItem to={OFFICIAL_PATH} active={pathname == OFFICIAL_PATH}>
+        <MenuItem
+          data-hover-event="true"
+          to={OFFICIAL_PATH}
+          active={pathname == OFFICIAL_PATH}
+        >
           공식
         </MenuItem>
       </Container>
@@ -85,7 +98,7 @@ const MenuItem = styled(Link)<{ active: boolean }>`
   border-bottom: ${({ theme, active }) =>
     active ? `2px solid ${theme.specialColors.positive}` : "none"};
 
-  &:hover {
+  &[data-hover-event="true"]:hover {
     border-bottom: ${({ theme }) =>
       `2px solid ${theme.borderColors.secondary}`};
   }
