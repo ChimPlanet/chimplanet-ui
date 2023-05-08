@@ -28,11 +28,11 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
       <UpperContainer>
         <Group>
           <Logo data-desktop={`${desktop}`} to={HOME_PATH}>
-            <ChimplanetIcon mid={desktop} />
+            <ChimplanetIcon mid={!desktop} />
           </Logo>
           <OrnamentalSearchBar onClick={activeSearchTab} />
         </Group>
-        {!desktop ? (
+        {desktop ? (
           <BookmarkButton />
         ) : (
           <MobileIcons>
@@ -73,7 +73,7 @@ const Group = styled.div`
 `;
 
 const Logo = styled(Link)`
-  &[data-mobile="true"] {
+  &[data-desktop="false"] {
     padding-left: 15px;
   }
 `;
