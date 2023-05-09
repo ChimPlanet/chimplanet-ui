@@ -1,6 +1,7 @@
 import { createThemePlatte } from "@/theme/base";
 
 export default createThemePlatte({
+  current: "light",
   textColors: {
     primary: "#101C33",
     secondary: "#444444", // header menu

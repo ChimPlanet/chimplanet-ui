@@ -49,6 +49,7 @@ export type ThemeBackgroundColorProperty =
   | "footer";
 
 export interface ChimplanetThemePlatte {
+  current: "light" | "dark";
   sizes: Record<ThemeScreenType, number>;
   widths: Record<ThemeScreenType, number>;
   media: Record<

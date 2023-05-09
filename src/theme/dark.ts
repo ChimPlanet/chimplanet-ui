@@ -1,6 +1,7 @@
 import { createThemePlatte } from "@/theme/base";
 
 export default createThemePlatte({
+  current: "dark",
   textColors: {
     primary: "#FFFFFF", // main color
     secondary: "#ffffff", // header menu
