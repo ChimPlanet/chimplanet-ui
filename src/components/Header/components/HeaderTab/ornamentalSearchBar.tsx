@@ -20,15 +20,15 @@ OrnamentalSearchBar.propTypes = {
 export default OrnamentalSearchBar;
 
 const Container = styled.div`
-  display: grid;
   padding: 10px 20px;
   border-radius: 100px;
   width: 350px;
   grid-template-columns: auto 16px;
   background-color: ${({ theme }) => theme.bgColors.senary};
+  display: none;
 
-  ${({ theme }) => theme.media.mobile`
-    display: none;
+  ${({ theme }) => theme.media.desktop`
+    display: grid;
   `}
 `;
 

@@ -8,7 +8,12 @@ import {
 import { styled, Link, useLocation } from "@/libs";
 import { Menu } from "@/icons";
 
-import { JOB_PATH, HOME_PATH, OFFICIAL_PATH } from "@/constants/route";
+import {
+  JOB_PATH,
+  HOME_PATH,
+  OFFICIAL_PATH,
+  EVENT_PATH,
+} from "@/constants/route";
 import { FloatingMenu } from "@/components";
 import useTimer from "../../hooks/useTimer";
 
@@ -59,10 +64,10 @@ export const MenuBar: React.FC<{ desktop?: boolean }> = ({ desktop }) => {
         {categoryOrElseEl}
         <MenuItem
           data-hover-event="true"
-          to={JOB_PATH}
-          active={pathname === JOB_PATH}
+          to={EVENT_PATH}
+          active={pathname === EVENT_PATH}
         >
-          공고
+          이벤트
         </MenuItem>
         <MenuItem
           data-hover-event="true"
