@@ -1,4 +1,4 @@
-import { cloneElement } from "react";
+import { cloneElement, useMemo } from "react";
 import { PropTypes, styled } from "@/libs";
 
 interface FloatingAnchorContainerProps
@@ -21,12 +21,17 @@ export const FloatingMenu: React.FC<FloatingAnchorContainerProps> = ({
   zIndex = 100,
   ...props
 }) => {
+  const isFixed = useMemo(() => position === "fixed", [position]);
+
   return (
     <Container
       onMouseLeave={close}
       position={position}
       zIndex={zIndex}
-      top={anchorRef.current?.getBoundingClientRect().bottom}
+      top={
+        (isFixed ? 0 : getPageY()) +
+        anchorRef.current?.getBoundingClientRect().bottom
+      }
       left={anchorRef.current?.getBoundingClientRect().left}
       {...props}
     >
@@ -38,6 +43,12 @@ export const FloatingMenu: React.FC<FloatingAnchorContainerProps> = ({
 FloatingMenu.propTypes = {
   children: PropTypes.element.isRequired,
 };
+
+const getPageY = () =>
+  window.pageYOffset ||
+  document.documentElement.scrollTop ||
+  document.body.scrollTop ||
+  0;
 
 const Container = styled.div`
   position: ${(props: any) => props.position};
