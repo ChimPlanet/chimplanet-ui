@@ -49,7 +49,7 @@ export const MenuBar: React.FC<{ desktop?: boolean }> = ({ desktop }) => {
         <MenuItem
           data-hover-event="true"
           to={HOME_PATH}
-          visited={pathname === HOME_PATH}
+          $visited={pathname === HOME_PATH}
         >
           홈
         </MenuItem>
@@ -65,14 +65,14 @@ export const MenuBar: React.FC<{ desktop?: boolean }> = ({ desktop }) => {
         <MenuItem
           data-hover-event="true"
           to={EVENT_PATH}
-          visited={pathname === EVENT_PATH}
+          $visited={pathname === EVENT_PATH}
         >
           이벤트
         </MenuItem>
         <MenuItem
           data-hover-event="true"
           to={OFFICIAL_PATH}
-          visited={pathname == OFFICIAL_PATH}
+          $visited={pathname == OFFICIAL_PATH}
         >
           공식
         </MenuItem>
@@ -101,7 +101,7 @@ const Container = styled.div`
   margin-top: 30px;
 `;
 
-const MenuItem = styled(Link)<{ visited: boolean }>`
+const MenuItem = styled(Link)<{ $visited: boolean }>`
   cursor: pointer;
   display: flex;
   text-align: center;
@@ -111,8 +111,8 @@ const MenuItem = styled(Link)<{ visited: boolean }>`
 
   color: ${({ theme }) => theme.textColors.secondary};
 
-  border-bottom: ${({ theme, visited }) =>
-    visited ? `2px solid ${theme.specialColors.positive}` : "none"};
+  border-bottom: ${({ theme, $visited }) =>
+    $visited ? `2px solid ${theme.specialColors.positive}` : "none"};
 
   &[data-hover-event="true"]:hover {
     border-bottom: ${({ theme }) =>
