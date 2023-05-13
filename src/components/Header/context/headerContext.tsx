@@ -7,7 +7,9 @@ export interface HeaderContextState {
     activeHeaderTab(): void;
     afterSearch(): void;
   }>;
+  alternativeComponent?: JSX.Element;
   activeMobileMenu?(): void;
+  hideMenuBar?(): boolean;
 }
 
 const headerContext = createContext<HeaderContextState | null>(null);

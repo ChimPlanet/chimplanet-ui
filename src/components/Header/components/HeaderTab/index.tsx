@@ -17,7 +17,7 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
   activeSearchTab,
   desktop,
 }) => {
-  const { activeMobileMenu } = useHeader();
+  const { activeMobileMenu, hideMenuBar, alternativeComponent } = useHeader();
 
   const handleMobileMenu = () => {
     if (activeMobileMenu) activeMobileMenu();
@@ -26,12 +26,14 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
   return (
     <Container>
       <UpperContainer>
-        <Group>
-          <Logo data-desktop={`${desktop}`} to={HOME_PATH}>
-            <ChimplanetIcon mid={!desktop} />
-          </Logo>
-          <OrnamentalSearchBar onClick={activeSearchTab} />
-        </Group>
+        {alternativeComponent ?? (
+          <Group>
+            <Logo data-desktop={`${desktop}`} to={HOME_PATH}>
+              <ChimplanetIcon mid={!desktop} />
+            </Logo>
+            <OrnamentalSearchBar onClick={activeSearchTab} />
+          </Group>
+        )}
         {desktop ? (
           <BookmarkButton />
         ) : (
@@ -41,9 +43,11 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
           </MobileIcons>
         )}
       </UpperContainer>
-      <BottomContainer>
-        <MenuBar desktop={desktop} />
-      </BottomContainer>
+      {!hideMenuBar && (
+        <BottomContainer>
+          <MenuBar desktop={desktop} />
+        </BottomContainer>
+      )}
     </Container>
   );
 };
