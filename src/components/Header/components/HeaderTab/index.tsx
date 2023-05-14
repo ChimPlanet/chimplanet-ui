@@ -17,7 +17,12 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
   activeSearchTab,
   desktop,
 }) => {
-  const { activeMobileMenu, hideMenuBar, alternativeComponent } = useHeader();
+  const {
+    activeMobileMenu,
+    hideMenuBar,
+    alternativeComponent,
+    alternativeMenuComponent,
+  } = useHeader();
 
   const handleMobileMenu = () => {
     if (activeMobileMenu) activeMobileMenu();
@@ -45,7 +50,11 @@ export const HeaderTab: React.FC<HeaderTabProps> = ({
       </UpperContainer>
       {!hideMenuBar && (
         <BottomContainer>
-          <MenuBar desktop={desktop} />
+          {alternativeMenuComponent ? (
+            alternativeMenuComponent
+          ) : (
+            <MenuBar desktop={desktop} />
+          )}
         </BottomContainer>
       )}
     </Container>

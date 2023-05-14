@@ -8,6 +8,7 @@ export interface HeaderContextState {
     afterSearch(): void;
   }>;
   alternativeComponent?: JSX.Element;
+  alternativeMenuComponent?: JSX.Element;
   activeMobileMenu?(): void;
   hideMenuBar?(): boolean;
 }
