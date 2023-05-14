@@ -98,7 +98,6 @@ const Container = styled.div`
   position: relative;
   font-size: 14px;
   font-weight: 700;
-  margin-top: 30px;
 `;
 
 const MenuItem = styled(Link)<{ $visited: boolean }>`

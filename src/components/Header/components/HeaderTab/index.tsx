@@ -65,9 +65,12 @@ const UpperContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 10px;
 `;
 
-const BottomContainer = styled.div``;
+const BottomContainer = styled.div`
+  margin-top: 15px;
+`;
 
 const Group = styled.div`
   display: flex;
