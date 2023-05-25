@@ -23,43 +23,45 @@ export const Banner = ({ banners }: { banners: any[] }) => {
   const swiperRef = useRef<SwiperCore | null>(null);
   const [currentIndex, setCurrentIndx] = useState(1);
   return (
-    <Container>
-      <Swiper
-        spaceBetween={20}
-        loop
-        centeredSlides
-        grabCursor
-        slidesPerView="auto"
-        slidesOffsetBefore={0}
-        direction="horizontal"
-        initialSlide={0}
-        effect="slide"
-        autoplay={{
-          delay: 5000,
-          stopOnLastSlide: false,
-        }}
-        speed={500}
-        onBeforeInit={(s) => {
-          swiperRef.current = s;
-        }}
-        onSlideChange={(s) => setCurrentIndx(s.realIndex)}
-      >
-        <div className="swiper-wrapper">{createSwiperItems(banners)}</div>
-        <div className="banner__indicator-con">
-          <div className="banner__indicator-content">
-            <button onClick={() => swiperRef.current?.slidePrev()}>
-              <ChevronLeft />
-            </button>
-            <button onClick={() => swiperRef.current?.slideNext()}>
-              <ChevronRight />
-            </button>
-            <span className="banner__indicator-cursor">{`${
-              (currentIndex % banners.length) + 1
-            } / ${banners.length}`}</span>
+    banners && (
+      <Container>
+        <Swiper
+          spaceBetween={20}
+          loop
+          centeredSlides
+          grabCursor
+          slidesPerView="auto"
+          slidesOffsetBefore={0}
+          direction="horizontal"
+          initialSlide={0}
+          effect="slide"
+          autoplay={{
+            delay: 5000,
+            stopOnLastSlide: false,
+          }}
+          speed={500}
+          onBeforeInit={(s) => {
+            swiperRef.current = s;
+          }}
+          onSlideChange={(s) => setCurrentIndx(s.realIndex)}
+        >
+          <div className="swiper-wrapper">{createSwiperItems(banners)}</div>
+          <div className="banner__indicator-con">
+            <div className="banner__indicator-content">
+              <button onClick={() => swiperRef.current?.slidePrev()}>
+                <ChevronLeft />
+              </button>
+              <button onClick={() => swiperRef.current?.slideNext()}>
+                <ChevronRight />
+              </button>
+              <span className="banner__indicator-cursor">{`${
+                (currentIndex % banners.length) + 1
+              } / ${banners.length}`}</span>
+            </div>
           </div>
-        </div>
-      </Swiper>
-    </Container>
+        </Swiper>
+      </Container>
+    )
   );
 };
 
