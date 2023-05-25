@@ -9,7 +9,7 @@ export default function useScreenWidth(): number {
   let [width, setWidth] = useState(getWidth());
 
   useLayoutEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout> = 0;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined = undefined;
 
     const resizeListener = () => {
       clearTimeout(timeoutId);
