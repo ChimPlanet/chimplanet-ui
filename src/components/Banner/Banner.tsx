@@ -26,6 +26,7 @@ export const Banner = ({ banners }: { banners: any[] }) => {
     banners && (
       <Container>
         <Swiper
+          autoHeight
           spaceBetween={20}
           loop
           centeredSlides

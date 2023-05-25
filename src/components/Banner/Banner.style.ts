@@ -6,6 +6,7 @@ export const Container = styled.section`
   & img {
     border-radius: 30px / 25px;
     width: 100%;
+    height: 100%;
   }
 
   & .banner__indicator-con {
@@ -51,30 +52,31 @@ export const Container = styled.section`
   }
 
   ${({ theme }) => theme.media.desktop`
-      height: 375px;
       --indicator-width: 1060px;
       & .swiper-slide {
+        height: 375px;
         width: 1060px !important;
       }
   `}
   ${({ theme }) => theme.media.tablet`
-      height: 200px;
+      
       --indicator-width: 720px;
       .carousel-handle {
         display: none;
       }
       & .swiper-slide {
         width: 720px !important;
+        height: 200px;
       }
   `}
   
   ${({ theme }) => theme.media.mobile`
-        height: 180px;
-        --indicator-width: 290px;
+      --indicator-width: 290px;
       & .banner__indicator-con {
         display: none;
       }
       & .swiper-slide {
+        height: 180px;
         width: 290px !important;
       }
   `}
