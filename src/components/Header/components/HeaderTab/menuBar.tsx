@@ -1,20 +1,15 @@
-import {
-  useState,
-  useCallback,
-  useRef,
-  MutableRefObject,
-  useMemo,
-} from "react";
-import { styled, Link, useLocation } from "@/libs";
 import { Menu } from "@/icons";
-
+import { Link, styled, useLocation } from "@/libs";
 import {
-  JOB_PATH,
-  HOME_PATH,
-  OFFICIAL_PATH,
-  EVENT_PATH,
-} from "@/constants/route";
+  MutableRefObject,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+
 import { FloatingMenu } from "@/components";
+import { HOME_PATH, OFFICIAL_PATH } from "@/constants/route";
 import useTimer from "../../hooks/useTimer";
 
 import { useHeader } from "../../context/headerContext";
@@ -62,13 +57,13 @@ export const MenuBar: React.FC<{ desktop?: boolean }> = ({ desktop }) => {
       <Container ref={categoryAnchor}>
         {/* ScreenType 에 따라서 메뉴바 변경 */}
         {categoryOrElseEl}
-        <MenuItem
+        {/* <MenuItem
           data-hover-event="true"
           to={EVENT_PATH}
           $visited={pathname === EVENT_PATH}
         >
           이벤트
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem
           data-hover-event="true"
           to={OFFICIAL_PATH}
