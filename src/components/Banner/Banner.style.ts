@@ -1,8 +1,9 @@
-import { styled } from "@/libs";
+import { styled } from '@/libs';
 
 export const Container = styled.section`
   --indicator-width: 1060px;
   position: relative;
+
   & img {
     border-radius: 30px / 25px;
     width: 100%;
@@ -51,33 +52,30 @@ export const Container = styled.section`
     height: 100%;
   }
 
+  & .swiper-slide {
+    width: var(--indicator-width);
+    height: auto;
+
+    aspect-ratio: 212 / 75;
+  }
+
   ${({ theme }) => theme.media.desktop`
       --indicator-width: 1060px;
-      & .swiper-slide {
-        height: 375px;
-        width: 1060px !important;
-      }
   `}
+
   ${({ theme }) => theme.media.tablet`
-      
       --indicator-width: 720px;
+
       .carousel-handle {
         display: none;
-      }
-      & .swiper-slide {
-        width: 720px !important;
-        height: 200px;
       }
   `}
   
   ${({ theme }) => theme.media.mobile`
       --indicator-width: 290px;
+
       & .banner__indicator-con {
         display: none;
-      }
-      & .swiper-slide {
-        height: 180px;
-        width: 290px !important;
       }
   `}
 `;
