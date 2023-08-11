@@ -8,9 +8,6 @@
   "license": "MIT",
   "private": false,
   "type": "module",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "build": "yarn build:js && yarn build:ts",
     "build:js": "babel src --out-dir build --extensions \".ts,.tsx\" --source-maps inline --copy-files",
