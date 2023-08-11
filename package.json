@@ -1,16 +1,18 @@
 {
-  "name": "chimplanet-ui",
-  "version": "1.0.2",
+  "name": "@chimplanet/ui",
   "main": "./build/index.js",
   "module": "./build/index.js",
   "types": "./build/index.d.ts",
   "repository": "https://github.com/ChimPlanet/chimplanet-ui.git",
   "license": "MIT",
+  "private": false,
   "type": "module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "build": "yarn build:js && yarn build:ts",
     "build:js": "babel src --out-dir build --extensions \".ts,.tsx\" --source-maps inline --copy-files",
-    "prepare": "yarn run build",
     "build:ts": "npx tsc --emitDeclarationOnly",
     "start": "yarn build && node --experimental-specifier-resolution=node build/index.js",
     "storybook": "storybook dev -p 6006",
