@@ -1,2 +1,6 @@
 .babelrc
-/src
+src
+node_modules
+tsconfig.json
+stories
+.stories
