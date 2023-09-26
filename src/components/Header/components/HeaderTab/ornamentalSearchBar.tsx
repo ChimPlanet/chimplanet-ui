@@ -1,6 +1,6 @@
-import { Search } from "@/icons";
+import { Search } from "@chimplanet/ui/icons";
 
-import { styled, PropTypes } from "@/libs";
+import { PropTypes, styled } from "@chimplanet/ui/libs";
 
 export const OrnamentalSearchBar = ({ onClick }: { onClick(): void }) => {
   return (

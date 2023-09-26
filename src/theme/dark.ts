@@ -1,4 +1,4 @@
-import { createThemePlatte } from "@/theme/base";
+import { createThemePlatte } from "@chimplanet/ui/theme/base";
 
 export default createThemePlatte({
   current: "dark",

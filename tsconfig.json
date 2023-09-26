@@ -8,26 +8,16 @@
     "emitDeclarationOnly": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "composite": true,
     "allowJs": true,
-    "lib": [
-      "ESNext",
-      "dom"
-    ],
-    "typeRoots": [
-      "./node_modules/@types",
-      "./typings",
-    ],
+    "lib": ["ESNext", "dom"],
+    "typeRoots": ["./node_modules/@types", "./typings"],
     "declaration": true,
     "outDir": "build",
     "strict": true,
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@chimplanet/ui/*": ["src/*"]
     }
   },
-  "include": [
-    "src",
-    "typings",
-  ]
+  "include": ["src", "typings"]
 }

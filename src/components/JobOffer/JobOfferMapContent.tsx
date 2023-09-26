@@ -1,46 +1,41 @@
-import JobOffer, { JobOfferProps } from "./JobOffer";
+import { CSSProperties, useMemo } from "react";
+import JobOffer, { JobOfferProps, UIOfferVO } from "./JobOffer";
 
-interface JobOfferMapContentProps {
-  jobs: any[];
-  offerWidth: number;
-  direction: JobOfferProps["direction"];
+interface Props {
+  offers: UIOfferVO[];
+  offerWidth?: number;
+  direction?: JobOfferProps["direction"];
   rowLayoutConfig: JobOfferProps["rowLayoutConfig"];
-  isBookmarked(offer: any): boolean;
   onClick(offer: any): void;
   onBookmarkClick(offer: any): void;
 }
 
-export const JobOfferMapContent: React.FC<JobOfferMapContentProps> = ({
-  jobs,
+export const JobOfferMapContent: React.FC<Props> = ({
+  offers,
   offerWidth = 250,
   direction = "column",
   rowLayoutConfig,
   onClick,
   onBookmarkClick,
-  isBookmarked,
 }) => {
+  const style = useMemo(
+    () =>
+      ({
+        width: offerWidth,
+      } as CSSProperties),
+    [offerWidth]
+  );
+
   return (
     <>
-      {jobs.map((offer) => (
+      {offers.map((offer) => (
         <JobOffer
+          data={offer}
           direction={direction}
           onClick={() => onClick(offer)}
           key={offer.id}
-          id={offer.id}
-          thumbnailURL={offer.thumbnailURL}
-          isThumbnail={offer.isThumbnail}
-          title={offer.title}
-          writer={offer.writer}
-          writeAt={offer.regDate}
-          redirectURL={offer.redirectURL}
-          viewCount={offer.viewCount}
-          isBookmarked={isBookmarked(offer)}
-          isClosed={offer.isClosed}
-          isRegular={offer.isRegular}
-          onBookmarkClick={onBookmarkClick.bind(null, offer.data)}
-          style={{
-            width: offerWidth,
-          }}
+          onBookmarkClick={() => onBookmarkClick(offer)}
+          style={style}
           rowLayoutConfig={rowLayoutConfig}
         />
       ))}

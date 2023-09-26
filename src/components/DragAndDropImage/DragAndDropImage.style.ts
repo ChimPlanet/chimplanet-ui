@@ -1,4 +1,4 @@
-import { styled } from "@/libs";
+import { styled } from "@chimplanet/ui/libs";
 
 export const OverlayContainer = styled.div`
   position: relative;

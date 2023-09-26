@@ -1,5 +1,5 @@
+import { PropTypes, styled } from "@chimplanet/ui/libs";
 import { cloneElement, useMemo } from "react";
-import { PropTypes, styled } from "@/libs";
 
 interface FloatingAnchorContainerProps
   extends React.DetailedHTMLProps<

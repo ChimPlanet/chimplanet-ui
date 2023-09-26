@@ -1,29 +1,27 @@
+import { SharpBookmark } from "@chimplanet/ui/icons";
 import { MouseEventHandler } from "react";
-import { SharpBookmark } from "@/icons";
 
-import { PropTypes } from "@/libs";
+import { PropTypes } from "@chimplanet/ui/libs";
 import {
+  BookmarkButton,
   Container,
   ThumbnailImage,
-  BookmarkButton,
 } from "./JobOfferThumbnail.style";
 
-import defaultImage from "@/constants/defaultImage";
-import { useScreenType } from "@/contexts";
+import defaultImage from "@chimplanet/ui/constants/defaultImage";
+import { useScreenType } from "@chimplanet/ui/contexts";
 
 interface JobOfferThumbnailProps {
-  src: string;
+  src?: string;
   alt: string;
-  isBookmarked: boolean;
-  isThumbnail: boolean;
+  bookmarked?: boolean;
   onBookmarkClick(): void;
 }
 
 export const JobOfferThumbnail: React.FC<JobOfferThumbnailProps> = ({
   src,
   alt,
-  isThumbnail,
-  isBookmarked,
+  bookmarked,
   onBookmarkClick,
 }) => {
   const screenType = useScreenType();
@@ -36,11 +34,11 @@ export const JobOfferThumbnail: React.FC<JobOfferThumbnailProps> = ({
     <Container>
       <ThumbnailImage
         referrerPolicy="no-referrer"
-        src={isThumbnail ? src : defaultImage[screenType]}
+        src={src ?? defaultImage[screenType]}
         alt={alt}
       />
       <BookmarkButton onClick={handleClick}>
-        <SharpBookmark filled={isBookmarked} />
+        <SharpBookmark filled={bookmarked} />
       </BookmarkButton>
     </Container>
   );
@@ -49,7 +47,7 @@ export const JobOfferThumbnail: React.FC<JobOfferThumbnailProps> = ({
 JobOfferThumbnail.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
-  isBookmarked: PropTypes.bool.isRequired,
+  bookmarked: PropTypes.bool.isRequired,
   isThumbnail: PropTypes.bool.isRequired,
 };
 

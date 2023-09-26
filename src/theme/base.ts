@@ -1,5 +1,9 @@
-import { ScreenType } from "@/contexts";
-import { ChimplanetThemePlatte, FlattenSimpleInterpolation, css } from "@/libs";
+import { ScreenType } from "@chimplanet/ui/contexts";
+import {
+  ChimplanetThemePlatte,
+  FlattenSimpleInterpolation,
+  css,
+} from "@chimplanet/ui/libs";
 
 // ! @media 감지 너비
 const sizes = {

@@ -1,4 +1,4 @@
-import { styled } from "@/libs";
+import { styled } from "@chimplanet/ui/libs";
 import { useMemo } from "react";
 import { useRecruitContextState, useRecruitContextUpdater } from "./";
 

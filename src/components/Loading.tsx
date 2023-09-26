@@ -1,5 +1,5 @@
-import { styled } from "@/libs";
-import Spinner from "@/assets/images/loading-middle.gif";
+import Spinner from "@chimplanet/ui/assets/images/loading-middle.gif";
+import { styled } from "@chimplanet/ui/libs";
 
 export const Loading = () => (
   <Container>

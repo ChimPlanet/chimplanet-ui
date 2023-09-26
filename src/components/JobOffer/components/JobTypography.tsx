@@ -1,13 +1,13 @@
-import { PropTypes } from "@/libs";
+import { PropTypes } from "@chimplanet/ui/libs";
 import { toFormatNumber } from "../utils/number.util";
 
-import { Container, Title, Writer, Detail } from "./JobTypography.style";
+import { Container, Detail, Title, Writer } from "./JobTypography.style";
 
 interface JobTypographyProps {
   title: string;
   writer: string;
   viewCount: number;
-  writeAt: string;
+  writeAt: Date;
 }
 
 export const JobTypography: React.FC<JobTypographyProps> = ({

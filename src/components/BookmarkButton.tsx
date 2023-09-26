@@ -1,5 +1,5 @@
-import { styled, Link } from "@/libs";
-import { BOOKMARK_PATH } from "@/constants/route";
+import { BOOKMARK_PATH } from "@chimplanet/ui/constants/route";
+import { Link, styled } from "@chimplanet/ui/libs";
 
 export const BookmarkButton: React.FC = () => {
   return (

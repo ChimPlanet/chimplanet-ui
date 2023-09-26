@@ -1,13 +1,13 @@
 import {
+  DetailedHTMLProps,
   FC,
+  HTMLAttributes,
   cloneElement,
   useMemo,
-  DetailedHTMLProps,
-  HTMLAttributes,
 } from "react";
 
-import { styled } from "@/libs";
-import { ScreenType, useScreenType } from "@/contexts";
+import { ScreenType, useScreenType } from "@chimplanet/ui/contexts";
+import { styled } from "@chimplanet/ui/libs";
 
 export interface ResizableGridProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

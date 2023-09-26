@@ -1,15 +1,12 @@
+import { PropTypes, ThemeProvider } from "@chimplanet/ui/libs";
 import { PropsWithChildren, createContext, useContext, useState } from "react";
-import { ThemeProvider, PropTypes, ChimplanetThemePlatte } from "@/libs";
 
-import { lightTheme, darkTheme } from "@/theme";
+import { darkTheme, lightTheme } from "@chimplanet/ui/theme";
 
 const themeUpdateContext = createContext<(() => void) | null>(null);
 
 const themeModeContext = createContext<string>("light");
 
-/**
- * @param {{children: JSX.Element}}
- */
 export const CPThemeProvider: React.FC<
   PropsWithChildren<{ onlyLight?: boolean }>
 > = ({ children, onlyLight }) => {

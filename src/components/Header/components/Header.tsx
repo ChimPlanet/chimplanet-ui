@@ -1,9 +1,9 @@
-import { useCallback, useState, useMemo } from "react";
-import { styled } from "@/libs";
+import { styled } from "@chimplanet/ui/libs";
+import { useCallback, useMemo, useState } from "react";
 
-import HeaderTab from "./HeaderTab";
-import { useScreenType } from "@/contexts";
+import { useScreenType } from "@chimplanet/ui/contexts";
 import { useHeader, wrapHeaderContext } from "../context/headerContext";
+import HeaderTab from "./HeaderTab";
 
 export const Header = wrapHeaderContext(() => {
   const { SearchTabComponent } = useHeader();

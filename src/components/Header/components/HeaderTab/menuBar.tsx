@@ -1,5 +1,5 @@
-import { Menu } from "@/icons";
-import { Link, styled, useLocation } from "@/libs";
+import { Menu } from "@chimplanet/ui/icons";
+import { Link, styled, useLocation } from "@chimplanet/ui/libs";
 import {
   MutableRefObject,
   useCallback,
@@ -8,8 +8,8 @@ import {
   useState,
 } from "react";
 
-import { FloatingMenu } from "@/components";
-import { HOME_PATH, OFFICIAL_PATH } from "@/constants/route";
+import { FloatingMenu } from "@chimplanet/ui/components";
+import { HOME_PATH, OFFICIAL_PATH } from "@chimplanet/ui/constants/route";
 import useTimer from "../../hooks/useTimer";
 
 import { useHeader } from "../../context/headerContext";

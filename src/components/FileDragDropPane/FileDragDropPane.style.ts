@@ -1,4 +1,4 @@
-import { styled } from "@/libs";
+import { styled } from "@chimplanet/ui/libs";
 
 export const Container = styled.div`
   width: 100%;

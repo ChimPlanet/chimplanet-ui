@@ -1,7 +1,7 @@
 import { createContext, useContext, useMemo } from "react";
 
-import useScreenWidth from "@/hooks/useScreenWidth";
-import { ThemeScreenType } from "@/libs";
+import useScreenWidth from "@chimplanet/ui/hooks/useScreenWidth";
+import { ThemeScreenType } from "@chimplanet/ui/libs";
 
 export type ScreenType = ThemeScreenType;
 

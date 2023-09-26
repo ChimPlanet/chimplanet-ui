@@ -1,12 +1,12 @@
-import { styled, PropTypes, Link } from "@/libs";
-import { Menu, Search } from "@/icons";
+import { Menu, Search } from "@chimplanet/ui/icons";
+import { Link, PropTypes, styled } from "@chimplanet/ui/libs";
 
-import { BookmarkButton } from "@/components";
+import { BookmarkButton } from "@chimplanet/ui/components";
+import { useHeader } from "@chimplanet/ui/components/Header/context/headerContext";
+import { HOME_PATH } from "@chimplanet/ui/constants/route";
+import { ChimplanetIcon } from "@chimplanet/ui/icons";
 import MenuBar from "./menuBar";
 import OrnamentalSearchBar from "./ornamentalSearchBar";
-import { useHeader } from "@/components/Header/context/headerContext";
-import { ChimplanetIcon } from "@/icons";
-import { HOME_PATH } from "@/constants/route";
 
 interface HeaderTabProps {
   activeSearchTab(): void;

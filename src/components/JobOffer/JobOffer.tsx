@@ -1,31 +1,31 @@
-import { styled, number, string, bool, func } from "@/libs";
+import { PropTypes, styled } from "@chimplanet/ui/libs";
 
-import JobTypography from "./components/JobTypography";
-import JobStatusIndicator from "./components/JobStatusIndicator";
 import JobOfferThumbnail from "./components/JobOfferThumbnail";
+import JobStatusIndicator from "./components/JobStatusIndicator";
+import JobTypography from "./components/JobTypography";
 
-export interface JobOfferProps
-  extends Omit<
-    React.DetailedHTMLProps<
-      React.HTMLAttributes<HTMLDivElement>,
-      HTMLDivElement
-    >,
-    "id"
-  > {
-  direction: "row" | "column";
+export interface UIOfferVO {
   id: number;
-  thumbnailURL?: string;
-  isThumbnail: boolean;
   title: string;
-  viewCount: number;
-  writeAt: string;
   writer: string;
-  isClosed: boolean;
-  isRegular: boolean;
+  like: number;
+  view: number;
+  writeAt: Date;
   redirectURL: string;
-  isBookmarked: boolean;
+  thumbnailURL?: string;
+  bookmarked?: boolean;
+  closed: boolean;
+  regular: boolean;
+}
+
+export interface JobOfferProps {
+  data: UIOfferVO;
+  direction: "row" | "column";
+  bookmarked?: boolean;
+  onClick?(): void;
   onBookmarkClick(): void;
   rowLayoutConfig?: RowLayoutConfig;
+  style?: React.CSSProperties;
 }
 
 interface RowLayoutConfig {
@@ -34,40 +34,43 @@ interface RowLayoutConfig {
 }
 
 export const JobOffer: React.FC<JobOfferProps> = ({
+  data,
   direction,
-  id,
-  title,
-  thumbnailURL,
-  isThumbnail,
-  viewCount,
-  writeAt,
-  isClosed,
-  isRegular,
-  writer = "침플래닛",
-  isBookmarked = false,
-  onBookmarkClick,
   rowLayoutConfig,
-  ...props
+  style,
+  onClick,
+  onBookmarkClick,
 }) => {
+  const {
+    title,
+    thumbnailURL,
+    regular,
+    closed,
+    writer,
+    writeAt,
+    view,
+    bookmarked,
+  } = data;
+
   return (
     <Container
       data-direction={direction}
       rowConfig={rowLayoutConfig}
-      {...(props as any)}
+      onClick={onClick}
+      style={style}
     >
       <JobOfferThumbnail
-        src={thumbnailURL ?? ""}
+        src={thumbnailURL}
         alt={title}
-        isThumbnail={isThumbnail}
-        isBookmarked={isBookmarked}
+        bookmarked={bookmarked}
         onBookmarkClick={onBookmarkClick}
       />
       <div className="job-offer__information">
-        <JobStatusIndicator isRegular={isRegular} isClosed={isClosed} />
+        <JobStatusIndicator regular={regular} closed={closed} />
         <JobTypography
           writer={writer}
           writeAt={writeAt}
-          viewCount={viewCount}
+          viewCount={view}
           title={title}
         />
       </div>
@@ -76,17 +79,9 @@ export const JobOffer: React.FC<JobOfferProps> = ({
 };
 
 JobOffer.propTypes = {
-  id: number.isRequired,
-  title: string.isRequired,
-  thumbnailURL: string,
-  viewCount: number.isRequired,
-  writeAt: string.isRequired,
-  isClosed: bool.isRequired,
-  isThumbnail: bool.isRequired,
-  writer: string.isRequired,
-  isBookmarked: bool.isRequired,
-  isRegular: bool.isRequired,
-  onBookmarkClick: func.isRequired,
+  bookmarked: PropTypes.bool.isRequired,
+  onClick: PropTypes.func,
+  onBookmarkClick: PropTypes.func.isRequired,
 };
 
 export default JobOffer;

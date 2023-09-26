@@ -1,4 +1,4 @@
-import { styled } from "@/libs";
+import { styled } from "@chimplanet/ui/libs";
 
 export const Container = styled.div`
   margin-bottom: 12px;
@@ -15,10 +15,10 @@ const BaseIndicator = styled.span`
   font-style: normal;
 `;
 
-export const GoingIndicator = styled(BaseIndicator)<{ isClosed: boolean }>(
-  ({ theme, isClosed }) => ({
-    borderColor: theme.specialColors[isClosed ? "negative" : "positive"],
-    color: theme.specialColors[isClosed ? "negative" : "positive"],
+export const GoingIndicator = styled(BaseIndicator)<{ closed: boolean }>(
+  ({ theme, closed }) => ({
+    borderColor: theme.specialColors[closed ? "negative" : "positive"],
+    color: theme.specialColors[closed ? "negative" : "positive"],
   })
 );
 
