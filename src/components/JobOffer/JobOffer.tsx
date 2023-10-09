@@ -21,7 +21,6 @@ export interface UIOfferVO {
 export interface JobOfferProps {
   data: UIOfferVO;
   direction: "row" | "column";
-  bookmarked?: boolean;
   onClick?(): void;
   onBookmarkClick(): void;
   rowLayoutConfig?: RowLayoutConfig;
@@ -79,7 +78,6 @@ export const JobOffer: React.FC<JobOfferProps> = ({
 };
 
 JobOffer.propTypes = {
-  bookmarked: PropTypes.bool.isRequired,
   onClick: PropTypes.func,
   onBookmarkClick: PropTypes.func.isRequired,
 };

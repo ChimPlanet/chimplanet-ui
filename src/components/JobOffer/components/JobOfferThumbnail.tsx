@@ -21,7 +21,7 @@ interface JobOfferThumbnailProps {
 export const JobOfferThumbnail: React.FC<JobOfferThumbnailProps> = ({
   src,
   alt,
-  bookmarked,
+  bookmarked = false,
   onBookmarkClick,
 }) => {
   const screenType = useScreenType();
@@ -45,10 +45,8 @@ export const JobOfferThumbnail: React.FC<JobOfferThumbnailProps> = ({
 };
 
 JobOfferThumbnail.propTypes = {
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
   alt: PropTypes.string.isRequired,
-  bookmarked: PropTypes.bool.isRequired,
-  isThumbnail: PropTypes.bool.isRequired,
 };
 
 export default JobOfferThumbnail;

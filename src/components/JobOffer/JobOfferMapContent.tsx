@@ -1,13 +1,13 @@
-import { CSSProperties, useMemo } from "react";
+import { CSSProperties, Fragment, useMemo } from "react";
 import JobOffer, { JobOfferProps, UIOfferVO } from "./JobOffer";
 
 interface Props {
   offers: UIOfferVO[];
-  offerWidth?: number;
+  offerWidth?: number | string;
   direction?: JobOfferProps["direction"];
   rowLayoutConfig: JobOfferProps["rowLayoutConfig"];
-  onClick(offer: any): void;
-  onBookmarkClick(offer: any): void;
+  onClick(offer: UIOfferVO): void;
+  onBookmarkClick(offer: UIOfferVO): void;
 }
 
 export const JobOfferMapContent: React.FC<Props> = ({
@@ -27,7 +27,7 @@ export const JobOfferMapContent: React.FC<Props> = ({
   );
 
   return (
-    <>
+    <Fragment>
       {offers.map((offer) => (
         <JobOffer
           data={offer}
@@ -39,7 +39,7 @@ export const JobOfferMapContent: React.FC<Props> = ({
           rowLayoutConfig={rowLayoutConfig}
         />
       ))}
-    </>
+    </Fragment>
   );
 };
 

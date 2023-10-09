@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 
 interface RecruitContextState {
   length: number;
-  page: number;
+  cursor: number;
   perPage: number;
 }
 
@@ -20,6 +20,7 @@ const useRecruitContextState = () => {
       "useRecruitContextState must be used within a RecruitContextState"
     );
   }
+
   return context;
 };
 

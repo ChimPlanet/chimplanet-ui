@@ -1,10 +1,11 @@
 import { styled } from "@chimplanet/ui/libs";
-import { useMemo } from "react";
+import { createElement, useMemo } from "react";
 import { useRecruitContextState, useRecruitContextUpdater } from "./";
 
 export interface Props {
-  title: React.ReactNode;
-  renderControl?: (handle: ControlHandle) => React.ReactNode;
+  children: React.ReactNode;
+  as?: React.ElementType;
+  renderControl?: null | ((handle: ControlHandle) => React.ReactNode);
 }
 
 interface ControlHandle {
@@ -14,31 +15,41 @@ interface ControlHandle {
   prevPage: () => void;
 }
 
-export const RecruitHeader = ({ title, renderControl }: Props) => {
-  const { page, perPage, length } = useRecruitContextState();
+export const RecruitHeader = ({
+  children,
+  renderControl,
+  as = "div",
+}: Props) => {
+  const state = useRecruitContextState();
   const setRecruitCtx = useRecruitContextUpdater();
 
   const h = useMemo<ControlHandle>(() => {
+    const { cursor, perPage, length } = state;
+
     const o = {
-      isNext: length > page * perPage,
-      isPrev: page > 1,
+      isNext: length > cursor + perPage,
+      isPrev: cursor > 0,
       nextPage: () =>
-        o.isNext && setRecruitCtx((ctx) => ({ ...ctx, page: ctx.page + 1 })),
+        o.isNext &&
+        setRecruitCtx((ctx) => ({ ...ctx, cursor: ctx.cursor + 1 })),
       prevPage: () =>
-        o.isPrev && setRecruitCtx((ctx) => ({ ...ctx, page: ctx.page - 1 })),
+        o.isPrev &&
+        setRecruitCtx((ctx) => ({ ...ctx, cursor: ctx.cursor - 1 })),
     };
     return o;
-  }, [length, page, perPage]);
+  }, [state]);
+
+  const content = createElement(as, null, children);
 
   return (
-    <HeaderLayout>
-      <div>{title}</div>
-      <div>{renderControl && renderControl(h)}</div>
-    </HeaderLayout>
+    <Container>
+      {content}
+      {renderControl && renderControl(h)}
+    </Container>
   );
 };
 
-const HeaderLayout = styled.div`
+const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

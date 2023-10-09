@@ -1,17 +1,21 @@
-import { PropsWithChildren, useState } from "react";
-import { RecruitContextState, RecruitContextUpdater } from "./";
+import { Fragment, useState } from "react";
+import { RecruitContextState, RecruitContextUpdater } from "./RecruitContext";
 
-export const RecruitProvider = ({ children }: PropsWithChildren) => {
+export const RecruitProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [ctx, setCtx] = useState<RecruitContextState>({
     length: 0,
-    page: 1,
-    perPage: 10,
+    cursor: 0,
+    perPage: 3,
   });
 
   return (
     <RecruitContextState.Provider value={ctx}>
       <RecruitContextUpdater.Provider value={setCtx}>
-        {children}
+        <Fragment>{children}</Fragment>
       </RecruitContextUpdater.Provider>
     </RecruitContextState.Provider>
   );

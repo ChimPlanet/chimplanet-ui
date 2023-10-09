@@ -1,5 +1,5 @@
 import { PropTypes } from "@chimplanet/ui/libs";
-import { toFormatNumber } from "../utils/number.util";
+import { toFormatDate, toFormatNumber } from "../utils/number.util";
 
 import { Container, Detail, Title, Writer } from "./JobTypography.style";
 
@@ -21,7 +21,7 @@ export const JobTypography: React.FC<JobTypographyProps> = ({
       <Title title={title}>{title}</Title>
       <Writer>{writer}</Writer>
       <Detail>
-        {writeAt} &#183; 조회 {toFormatNumber(viewCount)}
+        {toFormatDate(writeAt)} &#183; 조회 {toFormatNumber(viewCount)}
       </Detail>
     </Container>
   );
@@ -31,7 +31,6 @@ JobTypography.propTypes = {
   title: PropTypes.string.isRequired,
   writer: PropTypes.string.isRequired,
   viewCount: PropTypes.number.isRequired,
-  writeAt: PropTypes.string.isRequired,
 };
 
 export default JobTypography;
