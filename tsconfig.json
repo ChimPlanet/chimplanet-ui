@@ -15,6 +15,7 @@
     "declaration": true,
     "outDir": "build",
     "strict": true,
+    "jsxImportSource": "@emotion/react",
     "paths": {
       "@chimplanet/ui/*": ["src/*"]
     }
